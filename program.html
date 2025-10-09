@@ -56,6 +56,10 @@
 
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
+
+	<link href='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css' rel='stylesheet' />
+	<script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js'></script>
+
 	<!-- FOR IE9 below -->
 	<!--[if lt IE 9]>
 	<script src="js/respond.min.js"></script>
@@ -76,8 +80,8 @@
 				<ul>
 					<li ><a href="index.html">Home</a></li>
 					<li><a href="venue.html">Venue</a></li>
-					<li class="fh5co-active" ><a href="speakers.html" style="color: darkorange;">Speakers</a></li>
-					<li><a href="program.html">Program</a></li>
+					<li ><a href="speakers.html">Speakers</a></li>
+					<li class="fh5co-active" ><a href="program.html" style="color: #ff8c00;">Program</a></li>
 					<li><a href="sponsors.html">Sponsors</a></li>
 					<li><a href="about.html">Mérida and </br>dia de muertos</a></li>
 				</ul>
@@ -90,52 +94,534 @@
 		</aside>
 
 		<div id="fh5co-main">
-			<aside id="fh5co-hero" class="js-fullheight">
-				<div class="flexslider js-fullheight">
-					<ul class="slides">
-				   	<li style="background-image: url(images/im_1_fond.jpg);">
-				   		<div class="overlay"></div>
-				   		<div class="container-fluid">
-				   			<div class="row">
-					   			<div class="col-md-8 col-md-offset-2 text-center js-fullheight slider-text">
-					   				<div class="slider-text-inner">
-					   					<h1 style="font-size: 65px; color: darkorange; ">Announcement – End of December</h1>
-					   				</div>
-					   			</div>
-					   		</div>
-				   		</div>
-				   	</li>
+			
+			<div class="modal fade" id="eventModal" tabindex="-1" role="dialog">
+				<div class="modal-dialog modal-lg" role="document">
+					<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="eventModalTitle"></h5>
+						<button type="button" class="close" data-dismiss="modal">&times;</button>
+					</div>
+					<div class="modal-body" id="eventModalBody" style="white-space: pre-wrap;"></div>
+					</div>
+				</div>
+			</div>
 
-				   	<!-- <li style="background-image: url(images/img_bg_2.jpg);">
-				   		<div class="overlay"></div>
-				   		<div class="container-fluid">
-				   			<div class="row">
-					   			<div class="col-md-8 col-md-offset-2 text-center js-fullheight slider-text">
-					   				<div class="slider-text-inner">
-					   					<h1>We are Happy to Create Newest Modern Websites</h1>
-											<h2>Free html5 templates Made by <a href="http://freehtml5.co/" target="_blank">freehtml5.co</a></h2>
-											<p><a class="btn btn-primary btn-demo popup-vimeo" href="https://vimeo.com/channels/staffpicks/93951774"> <i class="icon-monitor"></i> Live Preview</a> <a class="btn btn-primary btn-learn">Learn More<i class="icon-arrow-right3"></i></a></p>
-					   				</div>
-					   			</div>
-					   		</div>
-				   		</div>
-				   	</li>
-				   	<li style="background-image: url(images/img_bg_3.jpg);">
-				   		<div class="overlay"></div>
-				   		<div class="container-fluid">
-				   			<div class="row">
-					   			<div class="col-md-8 col-md-offset-2 text-center js-fullheight slider-text">
-					   				<div class="slider-text-inner">
-					   					<h1>Download our Free HTML5 Bootstrap Template</h1>
-											<h2>Free html5 templates Made by <a href="http://freehtml5.co/" target="_blank">freehtml5.co</a></h2>
-											<p><a class="btn btn-primary btn-demo popup-vimeo" href="https://vimeo.com/channels/staffpicks/93951774"> <i class="icon-monitor"></i> Live Preview</a> <a class="btn btn-primary btn-learn">Learn More<i class="icon-arrow-right3"></i></a></p>
-					   				</div>
-					   			</div>
-					   		</div>
-				   		</div>
-				   	</li> -->
-				  	</ul>
-			  	</div>
+			<aside id="fh5co-hero" class="js-fullheight">
+				
+				<div id='calendar' style="padding-top: +30px;"></div>
+
+				<script>
+				document.addEventListener('DOMContentLoaded', function() {
+					var calendarEl = document.getElementById('calendar');
+					var calendar = new FullCalendar.Calendar(calendarEl, {
+					initialView: 'timeGridWeek',
+					initialDate: '2026-11-03',
+					slotMinTime: '08:30:00',
+					slotMaxTime: '22:30:00',
+					slotDuration: '00:15:00',
+					events: [
+						// Mardi //
+						{
+						title: 'Opening (click 4 more)',
+						start: '2026-11-03T09:00:00',
+						end: '2026-11-03T09:30:00',
+						backgroundColor: '#E8E8E8',
+						borderColor: '#E8E8E8',
+  						textColor: '#08345b',
+						description: 'Auditorium',
+						},
+						{
+						title: 'Speaker',
+						start: '2026-11-03T09:30:00',
+						end: '2026-11-03T10:15:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['ltalk'],
+						},
+						{
+						title: 'Speaker',
+						start: '2026-11-03T10:15:00',
+						end: '2026-11-03T10:45:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['mtalk'],
+						},
+						{
+						title: 'Break',
+						start: '2026-11-03T10:45:00',
+						end: '2026-11-03T11:15:00',
+						backgroundColor: '#E8E8E8',
+						borderColor: '#E8E8E8',
+  						textColor: '#08345b',
+						description: 'Coffe Break',
+						},
+						{
+						title: 'Speaker',
+						start: '2026-11-03T11:15:00',
+						end: '2026-11-03T12:00:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['ltalk'],
+						},
+						{
+						title: 'Speaker',
+						start: '2026-11-03T12:00',
+						end: '2026-11-03T12:30:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['mtalk'],
+						},
+						{
+						title: 'Speaker',
+						start: '2026-11-03T12:30',
+						end: '2026-11-03T12:45:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['stalk'],
+						},
+						{
+						title: 'Speaker',
+						start: '2026-11-03T12:45',
+						end: '2026-11-03T13:00:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['stalk'],
+						},
+						{
+						title: 'Break',
+						start: '2026-11-03T13:00:00',
+						end: '2026-11-03T14:30:00',
+						backgroundColor: '#E8E8E8',
+						borderColor: '#E8E8E8',
+  						textColor: '#08345b',
+						description: 'Lunch Break',
+						},
+						{
+						title: 'Speaker',
+						start: '2026-11-03T14:30:00',
+						end: '2026-11-03T15:00:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['mtalk'],
+						},
+						{
+						title: 'Speaker',
+						start: '2026-11-03T15:00:00',
+						end: '2026-11-03T15:15:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['stalk'],
+						},
+						{
+						title: 'Speaker',
+						start: '2026-11-03T15:15:00',
+						end: '2026-11-03T16:00:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['ltalk'],
+						},
+						{
+						title: 'Speaker',
+						start: '2026-11-03T16:00:00',
+						end: '2026-11-03T16:15:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['stalk'],
+						},
+						{
+						title: 'Break',
+						start: '2026-11-03T16:15:00',
+						end: '2026-11-03T16:45:00',
+						backgroundColor: '#E8E8E8',
+						borderColor: '#E8E8E8',
+  						textColor: '#08345b',
+						description: 'Lunch Break',
+						},
+						{
+						title: 'Speaker',
+						start: '2026-11-03T16:45:00',
+						end: '2026-11-03T17:30:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['ltalk'],
+						},
+						{
+						title: 'Speaker',
+						start: '2026-11-03T17:30:00',
+						end: '2026-11-03T17:45:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['stalk'],
+						},
+						{
+						title: 'Speaker',
+						start: '2026-11-03T17:45:00',
+						end: '2026-11-03T18:00:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['stalk'],
+						},
+
+						// Mercredi //
+						
+						{
+						title: 'Speaker',
+						start: '2026-11-04T09:00:00',
+						end: '2026-11-04T09:45:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['ltalk'],
+						},
+						{
+						title: 'Speaker',
+						start: '2026-11-04T09:45:00',
+						end: '2026-11-04T10:15:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['mtalk'],
+						},
+						{
+						title: 'Speaker',
+						start: '2026-11-04T10:15:00',
+						end: '2026-11-04T10:45:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['mtalk'],
+						},
+						{
+						title: 'Break',
+						start: '2026-11-04T10:45:00',
+						end: '2026-11-04T11:15:00',
+						backgroundColor: '#E8E8E8',
+						borderColor: '#E8E8E8',
+  						textColor: '#08345b',
+						description: 'Coffe Break',
+						},
+						{
+						title: 'Speaker',
+						start: '2026-11-04T11:15:00',
+						end: '2026-11-04T12:00:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['ltalk'],
+						},
+						{
+						title: 'Speaker',
+						start: '2026-11-04T12:00',
+						end: '2026-11-04T12:30:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['mtalk'],
+						},
+						{
+						title: 'Speaker',
+						start: '2026-11-04T12:30',
+						end: '2026-11-04T12:45:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['stalk'],
+						},
+						{
+						title: 'Speaker',
+						start: '2026-11-04T12:45',
+						end: '2026-11-04T13:00:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['stalk'],
+						},
+						{
+						title: 'Break',
+						start: '2026-11-04T13:00:00',
+						end: '2026-11-04T14:30:00',
+						backgroundColor: '#E8E8E8',
+						borderColor: '#E8E8E8',
+  						textColor: '#08345b',
+						description: 'Lunch Break',
+						},
+						{
+						title: 'Speaker',
+						start: '2026-11-04T14:30:00',
+						end: '2026-11-04T15:00:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['mtalk'],
+						},
+						{
+						title: 'Speaker',
+						start: '2026-11-04T15:00:00',
+						end: '2026-11-04T15:15:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['stalk'],
+						},
+						{
+						title: 'Speaker',
+						start: '2026-11-04T15:15:00',
+						end: '2026-11-04T16:00:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['ltalk'],
+						},
+						{
+						title: 'Speaker',
+						start: '2026-11-04T16:00:00',
+						end: '2026-11-04T16:15:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['stalk'],
+						},
+						{
+						title: 'Break',
+						start: '2026-11-04T16:15:00',
+						end: '2026-11-04T16:45:00',
+						backgroundColor: '#E8E8E8',
+						borderColor: '#E8E8E8',
+  						textColor: '#08345b',
+						description: 'Lunch Break',
+						},
+						{
+						title: 'Speaker',
+						start: '2026-11-04T16:45:00',
+						end: '2026-11-04T17:30:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['ltalk'],
+						},
+						{
+						title: 'Speaker',
+						start: '2026-11-04T17:30:00',
+						end: '2026-11-04T17:45:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['stalk'],
+						},
+						{
+						title: 'Speaker',
+						start: '2026-11-04T17:45:00',
+						end: '2026-11-04T18:00:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['stalk'],
+						},
+						
+						// Jeudi //
+						
+						{
+						title: 'Speaker',
+						start: '2026-11-05T09:00:00',
+						end: '2026-11-05T09:45:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['ltalk'],
+						},
+						{
+						title: 'Speaker',
+						start: '2026-11-05T09:45:00',
+						end: '2026-11-05T10:15:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['mtalk'],
+						},
+						{
+						title: 'Speaker',
+						start: '2026-11-05T10:15:00',
+						end: '2026-11-05T10:45:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['mtalk'],
+						},
+						{
+						title: 'Break',
+						start: '2026-11-05T10:45:00',
+						end: '2026-11-05T11:15:00',
+						backgroundColor: '#E8E8E8',
+						borderColor: '#E8E8E8',
+  						textColor: '#08345b',
+						description: 'Coffe Break',
+						},
+						{
+						title: 'Speaker',
+						start: '2026-11-05T11:15:00',
+						end: '2026-11-05T12:00:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['ltalk'],
+						},
+						{
+						title: 'Speaker',
+						start: '2026-11-05T12:00',
+						end: '2026-11-05T12:30:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['mtalk'],
+						},
+						{
+						title: 'Speaker',
+						start: '2026-11-05T12:30',
+						end: '2026-11-05T12:45:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['stalk'],
+						},
+						{
+						title: 'Speaker',
+						start: '2026-11-05T12:45',
+						end: '2026-11-05T13:00:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['stalk'],
+						},
+						{
+						title: 'Break',
+						start: '2026-11-05T13:00:00',
+						end: '2026-11-05T14:30:00',
+						backgroundColor: '#E8E8E8',
+						borderColor: '#E8E8E8',
+  						textColor: '#08345b',
+						description: 'Lunch Break',
+						},
+						{
+						title: 'Social Activity',
+						start: '2026-11-05T14:30:00',
+						end: '2026-11-05T18:00:00',
+						backgroundColor: '#c700c7',
+						borderColor: '#c700c7',
+  						textColor: '#ffffff',
+						description: 'TBD',
+						},
+
+						{
+						title: 'Conference Dinner at 20h00',
+						start: '2026-11-05T19:30:00',
+						end: '2026-11-06T00:00:00',
+						backgroundColor: '#800080',
+						borderColor: '#800080',
+  						textColor: '#ffffff',
+						description: 'Conference Dinner at 20h00 at place',
+						},
+
+						// Vendredi //
+						
+						{
+						title: 'Opening ProAcad Day',
+						start: '2026-11-06T09:00:00',
+						end: '2026-11-06T09:15:00',
+						backgroundColor: '#E8E8E8',
+						borderColor: '#E8E8E8',
+  						textColor: '#08345b',
+						description: 'The objective of the ProAcad day is to treat 4 hot topics from an academic and industrial point of view.' ,
+						},
+
+						{
+						title: 'Topic 1 - Speaker ',
+						start: '2026-11-06T09:15:00',
+						end: '2026-11-06T10:00:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['ltalkp'],
+						},
+
+						{
+						title: 'Topic 1 - Speaker ',
+						start: '2026-11-06T10:00:00',
+						end: '2026-11-06T10:45:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['ltalkp'],
+						},
+						{
+						title: 'Break',
+						start: '2026-11-06T10:45:00',
+						end: '2026-11-06T11:15:00',
+						backgroundColor: '#E8E8E8',
+						borderColor: '#E8E8E8',
+  						textColor: '#08345b',
+						description: 'Coffe Break',
+						},
+						{
+						title: 'Topic 2 - Speaker ',
+						start: '2026-11-06T11:15:00',
+						end: '2026-11-06T12:00:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['ltalkp'],
+						},
+
+						{
+						title: 'Topic 2 - Speaker ',
+						start: '2026-11-06T12:00:00',
+						end: '2026-11-06T12:45:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['ltalkp'],
+						},
+
+						{
+						title: 'Topic 2 - Speaker ',
+						start: '2026-11-06T12:45:00',
+						end: '2026-11-06T13:00:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['stalkp'],
+						},
+						{
+						title: 'Break',
+						start: '2026-11-06T13:00:00',
+						end: '2026-11-06T14:30:00',
+						backgroundColor: '#E8E8E8',
+						borderColor: '#E8E8E8',
+  						textColor: '#08345b',
+						description: 'Lunch Break',
+						},
+						{
+						title: 'Topic 3 - Speaker ',
+						start: '2026-11-06T14:30:00',
+						end: '2026-11-06T15:15:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['ltalkp'],
+						},
+
+						{
+						title: 'Topic 3 - Speaker ',
+						start: '2026-11-06T15:15:00',
+						end: '2026-11-06T16:00:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> bla blab balbalba balb ablab ablba lab lab lab bla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab labbla blab balbalba balb ablab ablba lab lab lab ",
+						classNames: ['ltalkp'],
+						},
+						{
+						title: 'Closing',
+						start: '2026-11-06T16:00:00',
+						end: '2026-11-06T16:30:00',
+						backgroundColor: '#E8E8E8',
+						borderColor: '#E8E8E8',
+  						textColor: '#08345b',
+						description: 'See you soon.',
+						},
+
+					],
+
+
+					eventClick: function(info) {
+					// Inject content into the modal
+					document.getElementById('eventModalTitle').innerHTML = info.event.title;
+					document.getElementById('eventModalBody').innerHTML = info.event.extendedProps.description;
+
+					// Show modal
+					$('#eventModal').modal('show');
+					}
+
+
+					});
+					calendar.render();
+				});
+				</script>
+
+					
+
+
 			</aside>
 		</div>
 	</div>
