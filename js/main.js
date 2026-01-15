@@ -156,3 +156,32 @@
 
 
 }());
+
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const overlay = document.getElementById("intro-video-overlay");
+  const video = document.getElementById("intro-video");
+  const skipBtn = document.getElementById("skip-intro");
+
+  if (!overlay || !video) return;
+
+  // Optional: play intro only once per session
+  if (sessionStorage.getItem("introPlayed")) {
+    overlay.style.display = "none";
+    return;
+  }
+
+  function closeIntro(){
+    overlay.style.opacity = "0";
+    overlay.style.transition = "opacity 0.6s ease";
+    setTimeout(() => {
+      overlay.style.display = "none";
+    }, 600);
+    sessionStorage.setItem("introPlayed", "true");
+  }
+
+  video.addEventListener("ended", closeIntro);
+  skipBtn.addEventListener("click", closeIntro);
+
+});
