@@ -1332,3 +1332,270 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   }
 }
 
+/* ===== Sponsors grid/cards ===== */
+.sponsor-card{
+  display:block;
+  background: rgba(255,255,255,0.92);
+  border-radius: 12px;
+  padding: 16px 16px 14px;
+  margin-bottom: 22px;
+  text-decoration: none !important;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.10);
+  transition: transform .12s ease, box-shadow .12s ease;
+  min-height: 190px; /* homogénéise les hauteurs */
+}
+
+.sponsor-card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 14px 35px rgba(0,0,0,0.14);
+}
+
+.sponsor-logo-wrap{
+  height: 95px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom: 10px;
+}
+
+.sponsor-logo{
+  max-height: 95px;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: none;
+}
+
+.sponsor-no-logo{
+  height: 95px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  border: 1px dashed rgba(0,0,0,0.18);
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-bottom: 10px;
+  background: rgba(255,255,255,0.65);
+}
+
+.sponsor-name{
+  font-weight: 600;
+  font-size: 16px;
+  color: #111;
+  line-height: 1.25;
+  margin-top: 2px;
+}
+
+.sponsor-meta{
+  font-size: 13px;
+  color: #555;
+  margin-top: 6px;
+}
+
+.sponsor-url{
+  font-size: 12px;
+  color: #777;
+  margin-top: 6px;
+  word-break: break-word;
+}
+
+/* ===== Sponsors inside HERO ===== */
+.sponsors-hero-wrap{
+  margin: 18px auto 0;
+  max-width: 1050px;
+}
+
+.sponsors-hero-row{
+  margin-top: 10px;
+}
+
+/* Variante HERO : plus compact que la version “page” */
+.sponsor-card--hero{
+  min-height: 120px;
+  padding: 12px;
+  background: rgba(255,255,255,0.88);
+  backdrop-filter: blur(2px);
+}
+
+.sponsor-logo-wrap--hero{
+  height: 58px;
+  margin-bottom: 8px;
+}
+
+.sponsor-logo--hero{
+  max-height: 58px;
+}
+
+.sponsor-no-logo--hero{
+  height: 58px;
+  margin-bottom: 8px;
+  padding: 8px 10px;
+}
+
+@media (max-width: 768px){
+  .sponsor-card--hero{
+    min-height: 110px;
+  }
+}
+
+/* Texte compact dans cards (évite les pavés) */
+.sponsor-name--tight{
+  font-size: 15px;
+  line-height: 1.15;
+}
+
+/* Limite le texte à 2 lignes + coupe proprement */
+.sponsor-meta--clamp{
+  display: -webkit-box;
+  -webkit-line-clamp: 2;      /* 2 lignes max */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-height: 1.15;
+  max-height: 2.3em;          /* fallback visuel */
+  font-size: 12px;
+  color: #555;
+  margin-top: 6px;
+}
+
+/* Optionnel: si tu veux une “coupure” même sans clamp supporté */
+.sponsor-meta--clamp{
+  word-break: break-word;
+}
+
+/* Card hero sponsor (version compacte) */
+.sponsor-card--hero{
+  position: relative;
+  background: rgba(255,255,255,0.88);
+  border-radius: 12px;
+  padding: 12px;
+  margin-bottom: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.10);
+}
+
+.sponsor-main-link{
+  display: block;
+  text-decoration: none !important;
+}
+
+.sponsor-logo-wrap--hero{
+  height: 58px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom: 8px;
+}
+
+.sponsor-logo--hero{
+  max-height: 58px;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.sponsor-name--hero{
+  font-weight: 700;
+  font-size: 15px;
+  color: #111;
+  line-height: 1.1;
+}
+
+/* Bouton info */
+.sponsor-info-btn{
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(0,0,0,0.08);
+  color: #111;
+  font-weight: 700;
+  font-size: 13px;
+  line-height: 22px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.sponsor-info-btn:hover{
+  background: rgba(0,0,0,0.14);
+}
+
+/* ===== Custom popover size override ===== */
+.popover {
+  max-width: 480px !important;  /* largeur augmentée */
+  width: auto;
+}
+
+.popover-content {
+  font-size: 14px;
+  line-height: 1.6;
+}
+.sponsor-box{
+  background:#fff;
+  border:1px solid rgba(0,0,0,.12);
+  border-radius:14px;
+  padding:18px 20px;
+  display:flex;
+  flex-direction:column;
+  gap:16px;
+  box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+
+.sponsor-header{
+  display:flex;
+  align-items:center;
+  gap:16px;
+}
+
+.sponsor-logo{
+  height:60px;
+  width:auto;
+  display:block;
+}
+
+.sponsor-name{
+  font-size:18px;
+  font-weight:600;
+  line-height:1.2;
+}
+
+.sponsor-funding{
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  opacity:.6;
+}
+
+/* IDR blocks */
+
+.idr-link{
+  display:block;
+  text-decoration:none !important;
+  color:inherit;
+  padding:12px 14px;
+  border-left:3px solid rgba(0,0,0,.15);
+  background:rgba(0,0,0,.03);
+  border-radius:6px;
+  transition:all .15s ease;
+}
+
+.idr-link:hover{
+  background:rgba(0,0,0,.06);
+  border-left:3px solid darkorange;
+  transform:translateX(3px);
+}
+
+.idr-title{
+  font-weight:600;
+  font-size:14px;
+  margin-bottom:4px;
+}
+
+.idr-description{
+  font-size:13px;
+  line-height:1.5;
+  opacity:.8;
+}

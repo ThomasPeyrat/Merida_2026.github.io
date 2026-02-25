@@ -1,160 +1,411 @@
-
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-	<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Mathematical Advances on Emerging Risks</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
-	<meta name="keywords" content="free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
-	<meta name="author" content="FreeHTML5.co" />
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Mathematical Advances on Emerging Risks</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  	<!-- 
-	//////////////////////////////////////////////////////
+  <link rel="shortcut icon" href="favicon.png">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
 
-	FREE HTML5 TEMPLATE 
-	DESIGNED & DEVELOPED by FreeHTML5.co
-		
-	Website: 		http://freehtml5.co/
-	Email: 			info@freehtml5.co
-	Twitter: 		http://twitter.com/fh5co
-	Facebook: 		https://www.facebook.com/fh5co
+  <!-- Animate.css -->
+  <link rel="stylesheet" href="css/animate.css">
+  <!-- Icomoon Icon Fonts-->
+  <link rel="stylesheet" href="css/icomoon.css">
+  <!-- Bootstrap  -->
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <!-- Flexslider  -->
+  <link rel="stylesheet" href="css/flexslider.css">
+  <!-- Theme style  -->
+  <link rel="stylesheet" href="css/style.css">
 
-	//////////////////////////////////////////////////////
-	-->
+  <!-- Modernizr JS -->
+  <script src="js/modernizr-2.6.2.min.js"></script>
+  <!--[if lt IE 9]>
+  <script src="js/respond.min.js"></script>
+  <![endif]-->
 
-  	<!-- Facebook and Twitter integration -->
-	<meta property="og:title" content=""/>
-	<meta property="og:image" content=""/>
-	<meta property="og:url" content=""/>
-	<meta property="og:site_name" content=""/>
-	<meta property="og:description" content=""/>
-	<meta name="twitter:title" content="" />
-	<meta name="twitter:image" content="" />
-	<meta name="twitter:url" content="" />
-	<meta name="twitter:card" content="" />
+  <!-- ===== PAGE-LOCAL CSS (tu peux déplacer dans css/style.css) ===== -->
+  <style>
+    /* Place title at the top of the hero to free center space */
+    .hero-top-title{
+      position: absolute;
+      top: 28px;
+      left: 0;
+      right: 0;
+      z-index: 5;
+      text-align: center;
+      padding: 0 18px;
+    }
+    .hero-top-title h1{
+	margin: 0;
+	font-size: 58px;
+	font-weight: 250;   /* plus léger */
+	letter-spacing: 1px; /* un peu plus élégant */
+	color: darkorange;
+	}
+    .hero-top-title p{
+      margin: 10px auto 0;
+      max-width: 950px;
+      color: rgba(255,255,255,0.92);
+      font-size: 18px;
+    }
 
-	<!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-	<link rel="shortcut icon" href="favicon.png">
+    /* Center block for big sponsor boxes */
+    .sponsors-hero-center{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      padding-top: 140px; /* reserve room for title */
+      padding-bottom: 40px;
+    }
 
-	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
-	
-	<!-- Animate.css -->
-	<link rel="stylesheet" href="css/animate.css">
-	<!-- Icomoon Icon Fonts-->
-	<link rel="stylesheet" href="css/icomoon.css">
-	<!-- Bootstrap  -->
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<!-- Flexslider  -->
-	<link rel="stylesheet" href="css/flexslider.css">
-	<!-- Theme style  -->
-	<link rel="stylesheet" href="css/style.css">
+    .sponsors-hero-wrap{
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 12px;
+    }
 
-	<!-- Modernizr JS -->
-	<script src="js/modernizr-2.6.2.min.js"></script>
-	<!-- FOR IE9 below -->
-	<!--[if lt IE 9]>
-	<script src="js/respond.min.js"></script>
-	<![endif]-->
+    /* Bigger boxes so logos are visible */
+    .sponsor-card--hero{
+      position: relative;
+      display: block;
+      background: rgba(255,255,255,0.90);
+      border-radius: 14px;
+      padding: 18px 16px 16px;
+      margin-bottom: 18px;
+      text-decoration: none !important;
+      box-shadow: 0 14px 35px rgba(0,0,0,0.14);
+      transition: transform .12s ease, box-shadow .12s ease;
+      min-height: 220px;
+    }
+    .sponsor-card--hero:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.18);
+    }
 
-	</head>
-	<body>
-	<div id="fh5co-page">
-		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
-		<aside id="fh5co-aside" role="complementary" class="border js-fullheight">
+    .sponsor-logo-wrap--hero{
+      height: 135px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+    .sponsor-logo--hero{
+      max-height: 135px;
+      max-width: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
 
-			<h1 id="fh5co-logo">
-			<a href="index.html">
-				<img src="images/im_logo.png" alt="Conference Logo" style="max-width: 100%; height: auto;">
-			</a>
-			</h1>
-			<nav id="fh5co-main-menu" role="navigation">
-				<ul>
-					<li ><a href="index.html">Home</a></li>
-					<li><a href="venue.html">Venue</a></li>
-					<li ><a href="speakers.html">Speakers</a></li>
-					<li ><a href="program.html" >Program</a></li>
-					<li ><a href="caf.html">Call for </br>abstract</a></li>
-					<li class="fh5co-active" ><a href="sponsors.html"style="color: darkorange;">Sponsors</a></li>
-					<li><a href="Practical.html">Practical </br>info</a></li>
-					<li><a href="about.html">Mérida and </br>dia de muertos</a></li>
-				</ul>
-			</nav>
+    .sponsor-name--hero{
+      font-weight: 700;
+      font-size: 16px;
+      color: #111;
+      line-height: 1.15;
+      text-align: center;
+      margin-top: 6px;
+      padding: 0 4px;
+    }
+
+    /* No-logo version in same size box */
+    .sponsor-no-logo--hero{
+      height: 135px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      border: 1px dashed rgba(0,0,0,0.20);
+      border-radius: 12px;
+      padding: 14px 14px;
+      margin-bottom: 12px;
+      background: rgba(255,255,255,0.60);
+      text-align: center;
+    }
+    .sponsor-meta--hero{
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+    }
+
+    /* Card composed of link + info button */
+    .sponsor-card--hero.is-composite{
+      padding-top: 18px;
+    }
+    .sponsor-main-link{
+      display: block;
+      text-decoration: none !important;
+    }
+
+    /* Info button */
+    .sponsor-info-btn{
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      border: 0;
+      background: rgba(0,0,0,0.10);
+      color: #111;
+      font-weight: 800;
+      font-size: 14px;
+      line-height: 26px;
+      text-align: center;
+      cursor: pointer;
+    }
+    .sponsor-info-btn:hover{
+      background: rgba(0,0,0,0.16);
+    }
+
+    /* Responsive: keep logos visible on mobile */
+    @media (max-width: 992px){
+      .hero-top-title h1{ font-size: 48px; }
+      .sponsors-hero-center{ padding-top: 150px; }
+      .sponsor-card--hero{ min-height: 210px; }
+      .sponsor-logo-wrap--hero, .sponsor-no-logo--hero{ height: 120px; }
+      .sponsor-logo--hero{ max-height: 120px; }
+    }
+    @media (max-width: 768px){
+      .hero-top-title{ top: 18px; }
+      .hero-top-title h1{ font-size: 40px; }
+      .hero-top-title p{ font-size: 16px; }
+      .sponsors-hero-center{ padding-top: 160px; padding-bottom: 24px; }
+      .sponsor-card--hero{ min-height: 190px; padding: 16px 14px 14px; }
+      .sponsor-logo-wrap--hero, .sponsor-no-logo--hero{ height: 105px; }
+      .sponsor-logo--hero{ max-height: 105px; }
+    }
+  </style>
+  </head>
+
+  <body>
+  <div id="fh5co-page">
+    <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+
+    <aside id="fh5co-aside" role="complementary" class="border js-fullheight">
+      <h1 id="fh5co-logo">
+        <a href="index.html">
+          <img src="images/im_logo.png" alt="Conference Logo" style="max-width: 100%; height: auto;">
+        </a>
+      </h1>
+
+      <nav id="fh5co-main-menu" role="navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="venue.html">Venue</a></li>
+          <li><a href="speakers.html">Speakers</a></li>
+          <li><a href="program.html">Program</a></li>
+          <li><a href="caf.html">Call for </br>abstract</a></li>
+          <li class="fh5co-active"><a href="sponsors.html" style="color: darkorange;">Sponsors</a></li>
+          <li><a href="Practical.html">Practical </br>info</a></li>
+          <li><a href="about.html">Mérida and </br>dia de muertos</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div id="fh5co-main">
+
+      <!-- HERO : titre en haut, sponsors au centre en grandes boxes -->
+      <aside id="fh5co-hero" class="js-fullheight">
+        <div class="flexslider js-fullheight">
+          <ul class="slides">
+            <li style="background-image: url(images/im_1_fond.jpg);">
+              <div class="overlay"></div>
+
+              <!-- Title pinned at the top -->
+              <div class="hero-top-title">
+                <h1>Sponsors & Chairs</h1>
+                <p>We gratefully acknowledge the support of our sponsors and partner chairs.</p>
+              </div>
+
+              <!-- Sponsors centered (big cards) -->
+              <div class="container-fluid js-fullheight">
+                <div class="row js-fullheight">
+                  <div class="col-md-10 col-md-offset-1 js-fullheight">
+                    <div class="sponsors-hero-center">
+                      <div class="sponsors-hero-wrap">
+                        <div class="row">
+
+
+						  <!-- ================== Sponsor with logo + info popover (for long names) ================== -->
+                          <div class="col-md-4 col-sm-6 col-xs-12">
+                            <div class="sponsor-card--hero is-composite">
+
+                              <!-- Click = go to website -->
+								<a class="sponsor-main-link" href="https://math.ethz.ch/imsf" target="_blank" rel="noopener">
+								<div class="sponsor-logo-wrap--hero">
+									<img src="images/logo_ETH.jpg" alt="Sponsor 1 logo" class="sponsor-logo--hero">
+								</div>
+								<div class="sponsor-name--hero">Visit Website</div>
+								</a>
+
+                              <!-- Info = full name -->
+                              <button
+                                type="button"
+                                class="sponsor-info-btn"
+                                data-toggle="popover"
+                                data-trigger="focus"
+                                data-placement="bottom"
+                                data-content="Insurance Mathematics and Stochastic Finance"
+                                aria-label="More info about ETH Zurich"
+                                title="Department of Mathematics"
+                              >
+                                i
+                              </button>
+
+                            </div>
+                          </div>
+
+                          <!-- ================== Sponsor without logo (big card) ================== -->
+                          <!-- <div class="col-md-4 col-sm-6 col-xs-12">
+                            <a class="sponsor-card--hero" href="https://www.idr-re2a.eu/" target="_blank" rel="noopener">
+                              <div class="sponsor-no-logo--hero">
+                                <div class="sponsor-name--hero">IdR RE2A</div>
+                                <div class="sponsor-meta--hero">Risques Emergents ou Atypiques en Assurance</div>
+                              </div>
+                              <div class="sponsor-name--hero">Visit website</div>
+                            </a>
+                          </div> -->
+
+
+						  <!-- ================== Sponsor with logo + info popover (for long names) ================== -->
+                          <div class="col-md-4 col-sm-6 col-xs-12">
+                            <div class="sponsor-card--hero is-composite">
+
+                              <!-- Click = go to website -->
+                              <a class="sponsor-main-link" href="https://sites.google.com/view/chaireactions/accueil" target="_blank" rel="noopener">
+                                <div class="sponsor-logo-wrap--hero">
+                                  <img src="images/logoChaireACTIONS.png" alt="ACTIONS logo" class="sponsor-logo--hero">
+                                </div>
+                                <div class="sponsor-name--hero">Visit website</div>
+                              </a>
+
+                              <!-- Info = full name -->
+                              <button
+                                type="button"
+                                class="sponsor-info-btn"
+                                data-toggle="popover"
+                                data-trigger="focus"
+                                data-placement="bottom"
+                                data-content="Actuaries for Change in Technologies and Insurees Opportunities for Next Steps"
+                                aria-label="More info about ACTIONS"
+                                title="ACTIONS"
+                              >
+                                i
+                              </button>
+
+                            </div>
+                          </div>
+
+						  <div class="sponsor-box sponsor-ilb">
+
+							<!-- Logo principal -->
+							<div class="sponsor-header">
+								<img class="sponsor-logo" src="images/logo_ILB.jpg" alt="Institut Louis Bachelier">
+								<div class="sponsor-name">
+								Institut Louis Bachelier
+								</div>
+							</div>
+
+							<!-- Mention financement -->
+							<div class="sponsor-funding">
+								Funding through two IDR initiatives
+							</div>
+
+							<!-- IDR 1 -->
+							<a href="https://www.idr-re2a.eu/" target="_blank" rel="noopener" class="idr-item idr-link">
+								<div class="idr-title">IDR RE2A</div>
+								<div class="idr-description">
+								Risques Émergents ou Atypiques en Assurance.
+								</div>
+							</a>
+
+							<!-- IDR 2 -->
+							<a href="https://www.idr-itca.eu/" target="_blank" rel="noopener" class="idr-item idr-link">
+								<div class="idr-title">IDR ITCA</div>
+								<div class="idr-description">
+								Impact de la Transition Climatique en Assurance.
+								</div>
+							</a>
+
+							</div>
+
+
+						<!-- ================== Sponsor with logo + info popover (for long names) ================== -->
+                          <div class="col-md-4 col-sm-6 col-xs-12">
+                            <div class="sponsor-card--hero is-composite">
+
+                              <!-- Click = go to website -->
+                            <a class="sponsor-main-link" href="https://www.cimat.mx/" target="_blank" rel="noopener">
+                              <div class="sponsor-logo-wrap--hero">
+                                <img src="images/logo_CIMAT.jpg" alt="Sponsor 1 logo" class="sponsor-logo--hero">
+                              </div>
+                              <div class="sponsor-name--hero">Visit website</div>
+                            </a>
+
+                              <!-- Info = full name -->
+                              <button
+                                type="button"
+                                class="sponsor-info-btn"
+                                data-toggle="popover"
+                                data-trigger="focus"
+                                data-placement="bottom"
+                                data-content="Centro de Investigación en Matemáticas"
+                                aria-label="More info about CIMAT"
+                                title="CIMAT"
+                              >
+                                i
+                              </button>
+
+                            </div>
+                          </div>
 
 
 
-		</aside>
 
-		<div id="fh5co-main">
-			<aside id="fh5co-hero" class="js-fullheight">
-				<div class="flexslider js-fullheight">
-					<ul class="slides">
-				   	<li style="background-image: url(images/im_1_fond.jpg);">
-				   		<div class="overlay"></div>
-				   		<div class="container-fluid">
-				   			<div class="row">
-					   			<div class="col-md-8 col-md-offset-2 text-center js-fullheight slider-text">
-					   				<div class="slider-text-inner">
-					   					<h1 style="font-size: 65px; color: darkorange; ">Coming Soon</h1>
-					   				</div>
-					   			</div>
-					   		</div>
-				   		</div>
-				   	</li>
+                          <!-- Duplicate blocks as needed -->
 
-				   	<!-- <li style="background-image: url(images/img_bg_2.jpg);">
-				   		<div class="overlay"></div>
-				   		<div class="container-fluid">
-				   			<div class="row">
-					   			<div class="col-md-8 col-md-offset-2 text-center js-fullheight slider-text">
-					   				<div class="slider-text-inner">
-					   					<h1>We are Happy to Create Newest Modern Websites</h1>
-											<h2>Free html5 templates Made by <a href="http://freehtml5.co/" target="_blank">freehtml5.co</a></h2>
-											<p><a class="btn btn-primary btn-demo popup-vimeo" href="https://vimeo.com/channels/staffpicks/93951774"> <i class="icon-monitor"></i> Live Preview</a> <a class="btn btn-primary btn-learn">Learn More<i class="icon-arrow-right3"></i></a></p>
-					   				</div>
-					   			</div>
-					   		</div>
-				   		</div>
-				   	</li>
-				   	<li style="background-image: url(images/img_bg_3.jpg);">
-				   		<div class="overlay"></div>
-				   		<div class="container-fluid">
-				   			<div class="row">
-					   			<div class="col-md-8 col-md-offset-2 text-center js-fullheight slider-text">
-					   				<div class="slider-text-inner">
-					   					<h1>Download our Free HTML5 Bootstrap Template</h1>
-											<h2>Free html5 templates Made by <a href="http://freehtml5.co/" target="_blank">freehtml5.co</a></h2>
-											<p><a class="btn btn-primary btn-demo popup-vimeo" href="https://vimeo.com/channels/staffpicks/93951774"> <i class="icon-monitor"></i> Live Preview</a> <a class="btn btn-primary btn-learn">Learn More<i class="icon-arrow-right3"></i></a></p>
-					   				</div>
-					   			</div>
-					   		</div>
-				   		</div>
-				   	</li> -->
-				  	</ul>
-			  	</div>
-			</aside>
-		</div>
-	</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-	<!-- jQuery -->
-	<script src="js/jquery.min.js"></script>
-	<!-- jQuery Easing -->
-	<script src="js/jquery.easing.1.3.js"></script>
-	<!-- Bootstrap -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Waypoints -->
-	<script src="js/jquery.waypoints.min.js"></script>
-	<!-- Flexslider -->
-	<script src="js/jquery.flexslider-min.js"></script>
-	
-	
-	<!-- MAIN JS -->
-	<script src="js/main.js"></script>
+            </li>
+          </ul>
+        </div>
+      </aside>
 
-	</body>
+    </div>
+  </div>
+
+  <!-- jQuery -->
+  <script src="js/jquery.min.js"></script>
+  <!-- jQuery Easing -->
+  <script src="js/jquery.easing.1.3.js"></script>
+  <!-- Bootstrap -->
+  <script src="js/bootstrap.min.js"></script>
+
+  <!-- Popovers -->
+  <script>
+    $(function () {
+      $('[data-toggle="popover"]').popover();
+    });
+  </script>
+
+  <!-- Waypoints -->
+  <script src="js/jquery.waypoints.min.js"></script>
+  <!-- Flexslider -->
+  <script src="js/jquery.flexslider-min.js"></script>
+  <!-- MAIN JS -->
+  <script src="js/main.js"></script>
+
+  </body>
 </html>
-
