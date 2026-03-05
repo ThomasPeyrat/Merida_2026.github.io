@@ -29,157 +29,212 @@
   <script src="js/respond.min.js"></script>
   <![endif]-->
 
-  <!-- ===== PAGE-LOCAL CSS (tu peux déplacer dans css/style.css) ===== -->
   <style>
-    /* Place title at the top of the hero to free center space */
-    .hero-top-title{
+    /* ------------------------------------------------------------
+      Ajustements demandés :
+      - Fond de section sponsors = bleu du thème
+      - Cartes de hauteur auto (évite les gros vides)
+    ------------------------------------------------------------ */
+
+    :root{
+      /* Change cette valeur si besoin pour matcher EXACTEMENT le bleu de ton thème */
+      --sponsor-blue: #072846; /* fallback bleu profond */
+    }
+
+    /* ---------- HERO SIMPLE ---------- */
+    .sponsors-hero {
+      position: relative;
+      padding: 90px 0 40px;
+      background-size: cover;
+      background-position: center;
+    }
+    .sponsors-hero .overlay {
       position: absolute;
-      top: 28px;
-      left: 0;
-      right: 0;
-      z-index: 5;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+    }
+    .sponsors-hero .hero-inner{
+      position: relative;
+      z-index: 2;
       text-align: center;
       padding: 0 18px;
     }
-    .hero-top-title h1{
-	margin: 0;
-	font-size: 58px;
-	font-weight: 250;   /* plus léger */
-	letter-spacing: 1px; /* un peu plus élégant */
-	color: darkorange;
-	}
-    .hero-top-title p{
+    .sponsors-hero h1{
+      margin: 0;
+      font-size: 58px;
+      font-weight: 250;
+      letter-spacing: 1px;
+      color: darkorange;
+    }
+    .sponsors-hero p{
       margin: 10px auto 0;
       max-width: 950px;
       color: rgba(255,255,255,0.92);
       font-size: 18px;
     }
 
-    /* Center block for big sponsor boxes */
-    .sponsors-hero-center{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
-      padding-top: 140px; /* reserve room for title */
-      padding-bottom: 40px;
+    /* ---------- SECTION SPONSORS (fond bleu) ---------- */
+    .sponsors-section{
+      padding: 35px 0 70px;
+      background: var(--sponsor-blue);
+      /* petit dégradé discret pour un rendu plus "pro" */
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(0,0,0,0.06)), var(--sponsor-blue);
     }
 
-    .sponsors-hero-wrap{
-      width: 100%;
-      max-width: 1180px;
-      margin: 0 auto;
-      padding: 0 12px;
+    /* grille responsive propre */
+    .sponsors-grid{
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      align-items: start; /* important : chaque carte garde sa propre hauteur */
     }
 
-    /* Bigger boxes so logos are visible */
-    .sponsor-card--hero{
+    /* ---------- CARD (hauteur auto) ---------- */
+    .sponsor-card{
       position: relative;
-      display: block;
-      background: rgba(255,255,255,0.90);
+      background: rgba(255,255,255,0.96);
       border-radius: 14px;
-      padding: 18px 16px 16px;
-      margin-bottom: 18px;
-      text-decoration: none !important;
-      box-shadow: 0 14px 35px rgba(0,0,0,0.14);
+      padding: 16px;
+      box-shadow: 0 14px 35px rgba(0,0,0,0.20);
       transition: transform .12s ease, box-shadow .12s ease;
-      min-height: 220px;
+      /* on enlève min-height => fini les gros vides */
+      display: flex;
+      flex-direction: column;
     }
-    .sponsor-card--hero:hover{
+    .sponsor-card:hover{
       transform: translateY(-2px);
-      box-shadow: 0 18px 45px rgba(0,0,0,0.18);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.26);
     }
 
-    .sponsor-logo-wrap--hero{
-      height: 135px;
+    .sponsor-card a{
+      text-decoration: none !important;
+      color: inherit;
+    }
+
+    .sponsor-logo-wrap{
+      height: 130px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
-    .sponsor-logo--hero{
-      max-height: 135px;
+    .sponsor-logo{
+      max-height: 130px;
       max-width: 100%;
       width: auto;
       height: auto;
       object-fit: contain;
     }
 
-    .sponsor-name--hero{
-      font-weight: 700;
-      font-size: 16px;
+    .sponsor-title{
+      font-weight: 800;
+      font-size: 15px;
       color: #111;
-      line-height: 1.15;
       text-align: center;
-      margin-top: 6px;
-      padding: 0 4px;
+      margin: 6px 0 0;
+      line-height: 1.2;
     }
 
-    /* No-logo version in same size box */
-    .sponsor-no-logo--hero{
-      height: 135px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      border: 1px dashed rgba(0,0,0,0.20);
-      border-radius: 12px;
-      padding: 14px 14px;
-      margin-bottom: 12px;
-      background: rgba(255,255,255,0.60);
+    /* CTA compact => pas de margin-top:auto (qui étire) */
+    .sponsor-cta{
+      margin-top: 8px;
       text-align: center;
+      font-weight: 700;
+      font-size: 14px;
+      color: #111;
     }
-    .sponsor-meta--hero{
+
+    /* ---------- DETAILS (remplace popover) ---------- */
+    .sponsor-more{
+      margin-top: 10px;
+      border-top: 1px solid rgba(0,0,0,0.08);
+      padding-top: 10px;
+    }
+    .sponsor-more summary{
+      cursor: pointer;
+      font-weight: 700;
+      color: #333;
+      outline: none;
+      list-style: none;
+    }
+    .sponsor-more summary::-webkit-details-marker{ display:none; }
+    .sponsor-more summary:before{
+      content: "i";
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.08);
+      color: #111;
+      font-weight: 900;
+      text-align: center;
+      line-height: 20px;
+      margin-right: 8px;
+    }
+    .sponsor-more .more-text{
+      margin-top: 8px;
+      color: #555;
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    /* ---------- ILB + IDR ---------- */
+    .sponsor-ilb-head{
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .sponsor-ilb-logo{
+      width: 78px;
+      height: 78px;
+      border-radius: 12px;
+      object-fit: contain;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.06);
+      padding: 6px;
+      flex: 0 0 auto;
+    }
+    .sponsor-ilb-funding{
       font-size: 13px;
       color: #555;
-      margin-top: 8px;
+      margin-top: 4px;
     }
-
-    /* Card composed of link + info button */
-    .sponsor-card--hero.is-composite{
-      padding-top: 18px;
+    .idr-list{
+      display: grid;
+      gap: 10px;
+      margin-top: 10px;
     }
-    .sponsor-main-link{
+    .idr-item{
       display: block;
+      border: 1px solid rgba(0,0,0,0.10);
+      border-radius: 12px;
+      padding: 10px 12px;
+      background: rgba(255,255,255,0.6);
       text-decoration: none !important;
     }
-
-    /* Info button */
-    .sponsor-info-btn{
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      width: 26px;
-      height: 26px;
-      border-radius: 999px;
-      border: 0;
-      background: rgba(0,0,0,0.10);
-      color: #111;
+    .idr-item:hover{
+      background: rgba(255,165,0,0.07);
+      border-color: rgba(255,165,0,0.25);
+    }
+    .idr-title{
       font-weight: 800;
-      font-size: 14px;
-      line-height: 26px;
-      text-align: center;
-      cursor: pointer;
+      color: #111;
+      margin-bottom: 4px;
     }
-    .sponsor-info-btn:hover{
-      background: rgba(0,0,0,0.16);
+    .idr-description{
+      font-size: 13px;
+      color: #555;
+      line-height: 1.25;
     }
 
-    /* Responsive: keep logos visible on mobile */
-    @media (max-width: 992px){
-      .hero-top-title h1{ font-size: 48px; }
-      .sponsors-hero-center{ padding-top: 150px; }
-      .sponsor-card--hero{ min-height: 210px; }
-      .sponsor-logo-wrap--hero, .sponsor-no-logo--hero{ height: 120px; }
-      .sponsor-logo--hero{ max-height: 120px; }
-    }
+    /* ---------- RESPONSIVE ---------- */
     @media (max-width: 768px){
-      .hero-top-title{ top: 18px; }
-      .hero-top-title h1{ font-size: 40px; }
-      .hero-top-title p{ font-size: 16px; }
-      .sponsors-hero-center{ padding-top: 160px; padding-bottom: 24px; }
-      .sponsor-card--hero{ min-height: 190px; padding: 16px 14px 14px; }
-      .sponsor-logo-wrap--hero, .sponsor-no-logo--hero{ height: 105px; }
-      .sponsor-logo--hero{ max-height: 105px; }
+      .sponsors-hero{ padding: 70px 0 30px; }
+      .sponsors-hero h1{ font-size: 40px; }
+      .sponsors-hero p{ font-size: 16px; }
+      .sponsor-logo-wrap{ height: 110px; }
+      .sponsor-logo{ max-height: 110px; }
     }
   </style>
   </head>
@@ -211,177 +266,104 @@
 
     <div id="fh5co-main">
 
-      <!-- HERO : titre en haut, sponsors au centre en grandes boxes -->
-      <aside id="fh5co-hero" class="js-fullheight">
-        <div class="flexslider js-fullheight">
-          <ul class="slides">
-            <li style="background-image: url(images/im_1_fond.jpg);">
-              <div class="overlay"></div>
+      <!-- HERO SIMPLE -->
+      <section class="sponsors-hero" style="background-image: url(images/im_1_fond.jpg);">
+        <div class="overlay"></div>
+        <div class="container">
+          <div class="hero-inner">
+            <h1>Sponsors & Chairs</h1>
+            <p>We gratefully acknowledge the support of our sponsors and partner chairs.</p>
+          </div>
+        </div>
+      </section>
 
-              <!-- Title pinned at the top -->
-              <div class="hero-top-title">
-                <h1>Sponsors & Chairs</h1>
-                <p>We gratefully acknowledge the support of our sponsors and partner chairs.</p>
-              </div>
+      <!-- SECTION sponsors : fond bleu + cartes height auto -->
+      <section class="sponsors-section">
+        <div class="container">
+          <div class="sponsors-grid">
 
-              <!-- Sponsors centered (big cards) -->
-              <div class="container-fluid js-fullheight">
-                <div class="row js-fullheight">
-                  <div class="col-md-10 col-md-offset-1 js-fullheight">
-                    <div class="sponsors-hero-center">
-                      <div class="sponsors-hero-wrap">
-                        <div class="row">
+            <!-- ETH -->
+            <div class="sponsor-card">
+              <a href="https://math.ethz.ch/imsf" target="_blank" rel="noopener">
+                <div class="sponsor-logo-wrap">
+                  <img src="images/logo_ETH.jpg" alt="ETH Zurich logo" class="sponsor-logo">
+                </div>
+                <div class="sponsor-title">Department of Mathematics</div>
+                <div class="sponsor-cta">Visit website</div>
+              </a>
+              <details class="sponsor-more">
+                <summary>More info</summary>
+                <div class="more-text">Insurance Mathematics and Stochastic Finance</div>
+              </details>
+            </div>
 
+            <!-- ACTIONS -->
+            <div class="sponsor-card">
+              <a href="https://sites.google.com/view/chaireactions/accueil" target="_blank" rel="noopener">
+                <div class="sponsor-logo-wrap">
+                  <img src="images/logoChaireACTIONS.png" alt="ACTIONS logo" class="sponsor-logo">
+                </div>
+                <div class="sponsor-title">ACTIONS</div>
+                <div class="sponsor-cta">Visit website</div>
+              </a>
+              <details class="sponsor-more">
+                <summary>More info</summary>
+                <div class="more-text">Actuaries for Change in Technologies and Insurees Opportunities for Next Steps</div>
+              </details>
+            </div>
 
-						  <!-- ================== Sponsor with logo + info popover (for long names) ================== -->
-                          <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="sponsor-card--hero is-composite">
-
-                              <!-- Click = go to website -->
-								<a class="sponsor-main-link" href="https://math.ethz.ch/imsf" target="_blank" rel="noopener">
-								<div class="sponsor-logo-wrap--hero">
-									<img src="images/logo_ETH.jpg" alt="Sponsor 1 logo" class="sponsor-logo--hero">
-								</div>
-								<div class="sponsor-name--hero">Visit Website</div>
-								</a>
-
-                              <!-- Info = full name -->
-                              <button
-                                type="button"
-                                class="sponsor-info-btn"
-                                data-toggle="popover"
-                                data-trigger="focus"
-                                data-placement="bottom"
-                                data-content="Insurance Mathematics and Stochastic Finance"
-                                aria-label="More info about ETH Zurich"
-                                title="Department of Mathematics"
-                              >
-                                i
-                              </button>
-
-                            </div>
-                          </div>
-
-                          <!-- ================== Sponsor without logo (big card) ================== -->
-                          <!-- <div class="col-md-4 col-sm-6 col-xs-12">
-                            <a class="sponsor-card--hero" href="https://www.idr-re2a.eu/" target="_blank" rel="noopener">
-                              <div class="sponsor-no-logo--hero">
-                                <div class="sponsor-name--hero">IdR RE2A</div>
-                                <div class="sponsor-meta--hero">Risques Emergents ou Atypiques en Assurance</div>
-                              </div>
-                              <div class="sponsor-name--hero">Visit website</div>
-                            </a>
-                          </div> -->
-
-
-						  <!-- ================== Sponsor with logo + info popover (for long names) ================== -->
-                          <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="sponsor-card--hero is-composite">
-
-                              <!-- Click = go to website -->
-                              <a class="sponsor-main-link" href="https://sites.google.com/view/chaireactions/accueil" target="_blank" rel="noopener">
-                                <div class="sponsor-logo-wrap--hero">
-                                  <img src="images/logoChaireACTIONS.png" alt="ACTIONS logo" class="sponsor-logo--hero">
-                                </div>
-                                <div class="sponsor-name--hero">Visit website</div>
-                              </a>
-
-                              <!-- Info = full name -->
-                              <button
-                                type="button"
-                                class="sponsor-info-btn"
-                                data-toggle="popover"
-                                data-trigger="focus"
-                                data-placement="bottom"
-                                data-content="Actuaries for Change in Technologies and Insurees Opportunities for Next Steps"
-                                aria-label="More info about ACTIONS"
-                                title="ACTIONS"
-                              >
-                                i
-                              </button>
-
-                            </div>
-                          </div>
-
-						  <div class="sponsor-box sponsor-ilb">
-
-							<!-- Logo principal -->
-							<div class="sponsor-header">
-								<img class="sponsor-logo" src="images/logo_ILB.jpg" alt="Institut Louis Bachelier">
-								<div class="sponsor-name">
-								Institut Louis Bachelier
-								</div>
-							</div>
-
-							<!-- Mention financement -->
-							<div class="sponsor-funding">
-								Funding through two IDR initiatives
-							</div>
-
-							<!-- IDR 1 -->
-							<a href="https://www.idr-re2a.eu/" target="_blank" rel="noopener" class="idr-item idr-link">
-								<div class="idr-title">IDR RE2A</div>
-								<div class="idr-description">
-								Risques Émergents ou Atypiques en Assurance.
-								</div>
-							</a>
-
-							<!-- IDR 2 -->
-							<a href="https://www.idr-itca.eu/" target="_blank" rel="noopener" class="idr-item idr-link">
-								<div class="idr-title">IDR ITCA</div>
-								<div class="idr-description">
-								Impact de la Transition Climatique en Assurance.
-								</div>
-							</a>
-
-							</div>
-
-
-						<!-- ================== Sponsor with logo + info popover (for long names) ================== -->
-                          <div class="col-md-4 col-sm-6 col-xs-12">
-                            <div class="sponsor-card--hero is-composite">
-
-                              <!-- Click = go to website -->
-                            <a class="sponsor-main-link" href="https://www.cimat.mx/" target="_blank" rel="noopener">
-                              <div class="sponsor-logo-wrap--hero">
-                                <img src="images/logo_CIMAT.jpg" alt="Sponsor 1 logo" class="sponsor-logo--hero">
-                              </div>
-                              <div class="sponsor-name--hero">Visit website</div>
-                            </a>
-
-                              <!-- Info = full name -->
-                              <button
-                                type="button"
-                                class="sponsor-info-btn"
-                                data-toggle="popover"
-                                data-trigger="focus"
-                                data-placement="bottom"
-                                data-content="Centro de Investigación en Matemáticas"
-                                aria-label="More info about CIMAT"
-                                title="CIMAT"
-                              >
-                                i
-                              </button>
-
-                            </div>
-                          </div>
-
-
-
-
-                          <!-- Duplicate blocks as needed -->
-
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+            <!-- ILB + IDR (reste plus grande, mais n'étire plus les autres) -->
+            <div class="sponsor-card">
+              <div class="sponsor-ilb-head">
+                <img class="sponsor-ilb-logo" src="images/logo_ILB.jpg" alt="Institut Louis Bachelier">
+                <div style="text-align:left;">
+                  <div class="sponsor-title" style="text-align:left;">Institut Louis Bachelier</div>
+                  <div class="sponsor-ilb-funding">Funding through two IDR initiatives</div>
                 </div>
               </div>
 
-            </li>
-          </ul>
+              <div class="idr-list">
+                <a href="https://www.idr-re2a.eu/" target="_blank" rel="noopener" class="idr-item">
+                  <div class="idr-title">IDR RE2A</div>
+                  <div class="idr-description">Risques Émergents ou Atypiques en Assurance.</div>
+                </a>
+
+                <a href="https://www.idr-itca.eu/" target="_blank" rel="noopener" class="idr-item">
+                  <div class="idr-title">IDR ITCA</div>
+                  <div class="idr-description">Impact de la Transition Climatique en Assurance.</div>
+                </a>
+
+                <a href="#" target="_blank" rel="noopener" class="idr-item">
+                  <div class="idr-title">PdR GRESC</div>
+                  <div class="idr-description"></div>
+                </a>
+
+                <a href="#" target="_blank" rel="noopener" class="idr-item">
+                  <div class="idr-title">IDR Cyfi</div>
+                  <div class="idr-description">Cyber Financialization.</div>
+                </a>
+              </div>
+
+            </div>
+
+            <!-- CIMAT -->
+            <div class="sponsor-card">
+              <a href="https://www.cimat.mx/" target="_blank" rel="noopener">
+                <div class="sponsor-logo-wrap">
+                  <img src="images/logo_CIMAT.jpg" alt="CIMAT logo" class="sponsor-logo">
+                </div>
+                <div class="sponsor-title">CIMAT</div>
+                <div class="sponsor-cta">Visit website</div>
+              </a>
+              <details class="sponsor-more">
+                <summary>More info</summary>
+                <div class="more-text">Centro de Investigación en Matemáticas</div>
+              </details>
+            </div>
+
+          </div>
         </div>
-      </aside>
+      </section>
 
     </div>
   </div>
@@ -392,14 +374,6 @@
   <script src="js/jquery.easing.1.3.js"></script>
   <!-- Bootstrap -->
   <script src="js/bootstrap.min.js"></script>
-
-  <!-- Popovers -->
-  <script>
-    $(function () {
-      $('[data-toggle="popover"]').popover();
-    });
-  </script>
-
   <!-- Waypoints -->
   <script src="js/jquery.waypoints.min.js"></script>
   <!-- Flexslider -->

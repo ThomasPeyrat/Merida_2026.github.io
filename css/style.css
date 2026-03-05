@@ -1599,3 +1599,184 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   line-height:1.5;
   opacity:.8;
 }
+
+
+/* ---- HERO simple, sans absolute ---- */
+/* .sponsors-hero {
+  position: relative;
+  padding: 90px 0 40px;
+  background-size: cover;
+  background-position: center;
+}
+.sponsors-hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+}
+.sponsors-hero .hero-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 0 18px;
+}
+.sponsors-hero h1{
+  margin: 0;
+  font-size: 56px;
+  font-weight: 250;
+  letter-spacing: 1px;
+  color: darkorange;
+}
+.sponsors-hero p{
+  margin: 12px auto 0;
+  max-width: 950px;
+  color: rgba(255,255,255,0.92);
+  font-size: 18px;
+}
+
+/* ---- Section sponsors: grid robuste, responsive ---- */
+/* .sponsors-section{
+  padding: 35px 0 70px;
+  background: #fafafa;
+}
+.sponsors-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 18px;
+} */
+
+/* ---- Card unifiée ---- */
+/* .sponsor-card{
+  position: relative;
+  background: #fff;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 14px 35px rgba(0,0,0,0.10);
+  transition: transform .12s ease, box-shadow .12s ease;
+  min-height: 220px;
+  display: flex;
+  flex-direction: column;
+}
+.sponsor-card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 18px 45px rgba(0,0,0,0.14);
+}
+.sponsor-card a{
+  text-decoration: none !important;
+}
+.sponsor-logo-wrap{
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.sponsor-logo{
+  max-height: 130px;
+  max-width: 100%;
+  object-fit: contain;
+}
+.sponsor-cta{
+  margin-top: auto;
+  text-align: center;
+  font-weight: 700;
+  font-size: 14px;
+  color: #111;
+  padding-top: 10px;
+}
+.sponsor-title{
+  font-weight: 800;
+  font-size: 15px;
+  color: #111;
+  text-align: center;
+  margin: 6px 0 0;
+} */
+
+/* ---- Remplace popover par details (mobile friendly) ---- */
+/* .sponsor-more{
+  margin-top: 10px;
+  border-top: 1px solid rgba(0,0,0,0.08);
+  padding-top: 10px;
+}
+.sponsor-more summary{
+  cursor: pointer;
+  font-weight: 700;
+  color: #333;
+  outline: none;
+  list-style: none;
+}
+.sponsor-more summary::-webkit-details-marker { display: none; }
+.sponsor-more summary:before{
+  content: "i";
+  display: inline-block;
+  width: 20px; height: 20px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.08);
+  color: #111;
+  font-weight: 900;
+  text-align: center;
+  line-height: 20px;
+  margin-right: 8px;
+}
+.sponsor-more .more-text{
+  margin-top: 8px;
+  color: #555;
+  font-size: 13px;
+  line-height: 1.35;
+} */
+
+/* ---- Card ILB composite (logo + IDR list) ---- */
+/* .sponsor-ilb-head{
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.sponsor-ilb-head .sponsor-ilb-logo{
+  width: 78px;
+  height: 78px;
+  border-radius: 12px;
+  object-fit: contain;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  padding: 6px;
+}
+.sponsor-ilb-funding{
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 12px;
+}
+.idr-list{
+  display: grid;
+  gap: 10px;
+}
+.idr-item{
+  display: block;
+  border: 1px solid rgba(0,0,0,0.10);
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: rgba(255,255,255,0.6);
+}
+.idr-item:hover{
+  background: rgba(255,165,0,0.07);
+  border-color: rgba(255,165,0,0.25);
+}
+.idr-title{
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 4px;
+} */ 
+/* .idr-desc{
+  font-size: 13px;
+  color: #555;
+  line-height: 1.25;
+} */
+
+/* ---- Responsive tuning ---- */
+/* @media (max-width: 768px){
+  .sponsors-hero{ padding: 70px 0 30px; }
+  .sponsors-hero h1{ font-size: 40px; }
+  .sponsors-hero p{ font-size: 16px; }
+  .sponsor-card{ min-height: 200px; }
+  .sponsor-logo-wrap{ height: 110px; }
+  .sponsor-logo{ max-height: 110px; }
+} */
