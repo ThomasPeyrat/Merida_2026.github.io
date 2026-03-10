@@ -373,7 +373,7 @@ figure figcaption {
 }
 #fh5co-hero .flexslider .flex-control-nav li a.flex-active {
   cursor: pointer;
-  background: transparent;
+  background: darkorange;
   border: 2px solid #228896;
 }
 #fh5co-hero .flexslider .flex-direction-nav {
