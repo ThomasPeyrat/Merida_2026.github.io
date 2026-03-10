@@ -3,277 +3,412 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-  <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Practical Information | Mathematical Advances on Emerging Risks</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Practical information for participants: how to get to Mérida, local transportation, and evening activities." />
-  <meta name="keywords" content="Merida, Yucatan, conference, practical information, transport, airport, ADO, Va y Ven" />
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Practical Information | Mathematical Advances on Emerging Risks</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Practical information for participants: travel, local transportation, covered expenses, and evening activities in Mérida." />
+	<meta name="keywords" content="Merida, Yucatan, conference, practical information, transportation, airport, ADO, travel, accommodation" />
+	<meta name="author" content="FreeHTML5.co" />
 
-  <!-- Facebook and Twitter integration -->
-  <meta property="og:title" content="Practical Information"/>
-  <meta property="og:image" content=""/>
-  <meta property="og:url" content=""/>
-  <meta property="og:site_name" content="Mathematical Advances on Emerging Risks"/>
-  <meta property="og:description" content="How to get to Mérida, local transportation, and evening activities."/>
-  <meta name="twitter:title" content="Practical Information" />
-  <meta name="twitter:image" content="" />
-  <meta name="twitter:url" content="" />
-  <meta name="twitter:card" content="" />
+	<meta property="og:title" content="Practical Information"/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content="Mathematical Advances on Emerging Risks"/>
+	<meta property="og:description" content="Travel, local transportation, covered expenses, and evening activities in Mérida."/>
+	<meta name="twitter:title" content="Practical Information" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
 
-  <link rel="shortcut icon" href="favicon.png">
-  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+	<link rel="shortcut icon" href="favicon.png">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="css/animate.css">
-  <link rel="stylesheet" href="css/icomoon.css">
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <link rel="stylesheet" href="css/flexslider.css">
-  <link rel="stylesheet" href="css/style.css">
+	<!-- CSS -->
+	<link rel="stylesheet" href="css/animate.css">
+	<link rel="stylesheet" href="css/icomoon.css">
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/flexslider.css">
+	<link rel="stylesheet" href="css/style.css">
 
-  <!-- Modernizr JS -->
-  <script src="js/modernizr-2.6.2.min.js"></script>
-  <!-- FOR IE9 below -->
-  <!--[if lt IE 9]>
-  <script src="js/respond.min.js"></script>
-  <![endif]-->
-  </head>
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+	<!--[if lt IE 9]>
+	<script src="js/respond.min.js"></script>
+	<![endif]-->
 
-  <body>
-  <div id="fh5co-page">
-    <a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
+	<style>
+		.hero-subtitle {
+			color: white;
+			font-size: 24px;
+			line-height: 1.6;
+			font-weight: 300;
+			margin-top: 15px;
+		}
 
-    <aside id="fh5co-aside" role="complementary" class="border js-fullheight">
-      <h1 id="fh5co-logo">
-        <a href="index.html">
-          <img src="images/im_logo.png" alt="Conference Logo" style="max-width: 100%; height: auto;">
-        </a>
-      </h1>
+		.hero-mini-nav {
+			margin-top: 28px;
+		}
 
-      <nav id="fh5co-main-menu" role="navigation">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="venue.html">Venue</a></li>
-          <li><a href="speakers.html">Speakers</a></li>
-          <li><a href="program.html">Program</a></li>
-          <li><a href="caf.html">Call for </br>abstract</a></li>
-          <li><a href="sponsors.html">Sponsors</a></li>
-          <li class="fh5co-active"><a href="practical.html" style="color: darkorange;">Practical </br>info</a></li>
-          <li><a href="about.html">Mérida and </br>dia de muertos</a></li>
-        </ul>
-      </nav>
+		.hero-mini-nav a {
+			display: inline-block;
+			margin: 6px 8px;
+			padding: 10px 16px;
+			border: 1px solid rgba(255,255,255,0.35);
+			border-radius: 24px;
+			color: white;
+			font-size: 14px;
+			text-decoration: none;
+			background: rgba(0,0,0,0.18);
+			transition: 0.3s ease;
+		}
 
+		.hero-mini-nav a:hover {
+			background: rgba(255,140,0,0.18);
+			border-color: darkorange;
+			color: darkorange;
+		}
 
-    </aside>
+		.section-intro {
+			font-size: 18px;
+			line-height: 1.8;
+			color: #4a4a4a;
+			margin-bottom: 10px;
+		}
 
-    <div id="fh5co-main">
+		.info-card {
+			background: #fff;
+			border-radius: 14px;
+			padding: 28px 30px;
+			margin-bottom: 28px;
+			box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+			border-left: 5px solid darkorange;
+		}
 
-      <!-- Optional hero (same style as other pages) -->
-      <aside id="fh5co-hero" class="js-fullheight">
-        <div class="flexslider js-fullheight">
-          <ul class="slides">
-            <li style="background-image: url(images/im_1_fond.jpg);">
-              <div class="overlay"></div>
-              <div class="container-fluid">
-                <div class="row">
-                  <div class="col-md-8 col-md-offset-2 text-center js-fullheight slider-text">
-                    <div class="slider-text-inner">
-                      <h1 style="color: darkorange;">Practical Information</h1>
-                      <h2>Getting to Mérida • Transportation • Evening activities</h2>
-                      <p>
-                        <a class="btn btn-primary btn-demo" href="#how-to-get">
-                          Jump to info</br>
-                          <i class="icon-arrow-down3"></i>
-                        </a>
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </aside>
+		.info-card h3 {
+			margin-top: 0;
+			margin-bottom: 18px;
+			color: #1f2d3d;
+			font-size: 28px;
+			font-weight: 500;
+		}
 
+		.info-card h4 {
+			color: #1f2d3d;
+			margin-top: 22px;
+			margin-bottom: 12px;
+			font-size: 21px;
+			font-weight: 500;
+		}
 
-      <div class="fh5co-narrow-content" id="how-to-get">
-        <h1 class="fh5co-heading animate-box"> Covered expenses </h1>
-        <div class="row row-bottom-padded-md">
-          <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-            <p style="font-size: 18px;">
-              The organizing committee will cover the costs of the venue, coffee breaks, 
-              the social activity, and the conference dinner. Participants will be responsible for travel and accommodation.
-            </p>
-          </div>
-        </div>
-        <h1 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">How to get to Mérida</h1>
+		.info-card p,
+		.info-card li {
+			font-size: 17px;
+			line-height: 1.8;
+			color: #4a4a4a;
+		}
 
-        <div class="row row-bottom-padded-md">
-          <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-            <p style="font-size: 18px;">
-              Mérida, the capital of Yucatán, is easily accessible by plane, bus, or car.
-              The main airport is <strong>Manuel Crescencio Rejón International Airport (MID)</strong>,
-              located about <strong>15–25 minutes</strong> from downtown.
-            </p>
+		.info-card ul {
+			padding-left: 22px;
+			margin-bottom: 10px;
+		}
 
-            <h3 style="margin-top: 25px;">By plane</h3>
-            <ul style="font-size: 18px;">
-              <li><strong>Direct flights</strong> to Mérida (MID) are available from several hubs (especially from the U.S.).</li>
-              <li><strong>From Europe / international travelers:</strong> the most common connections are via
-                <strong>Mexico City (MEX)</strong> or <strong>Cancún (CUN)</strong>.
-              </li>
-            </ul>
+		.soft-note {
+			margin-top: 18px;
+			padding: 16px 18px;
+			border-radius: 10px;
+			background: rgba(255, 140, 0, 0.08);
+			border: 1px solid rgba(255, 140, 0, 0.18);
+			font-size: 16px;
+			line-height: 1.7;
+			color: #444;
+		}
 
-            <div class="alert alert-info" style="margin-top: 15px; font-size: 16px;">
-              <strong>Tip:</strong> If you arrive in Cancún, you can reach Mérida comfortably by ADO bus in ~4 hours.
-            </div>
+		.day-card {
+			background: #ffffff;
+			border-radius: 12px;
+			padding: 20px 22px;
+			margin-bottom: 18px;
+			box-shadow: 0 6px 22px rgba(0,0,0,0.06);
+			border-top: 3px solid darkorange;
+		}
 
-            <h3 style="margin-top: 25px;">From Cancún by bus</h3>
-            <ul style="font-size: 18px;">
-              <li>Company: <strong>ADO</strong> (very frequent departures)</li>
-              <li>Typical duration: <strong>~4h</strong> (depending on the service)</li>
-              <li>Arrival: ADO terminal in Mérida (city center / close to downtown)</li>
-            </ul>
+		.day-card h4 {
+			margin-top: 0;
+			margin-bottom: 12px;
+			color: #1f2d3d;
+			font-size: 22px;
+		}
 
-            <h3 style="margin-top: 25px;">From Cancún by car</h3>
-            <ul style="font-size: 18px;">
-              <li>Travel time: <strong>~3.5–4h</strong></li>
-              <li>Toll highway available (recommended for comfort)</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+		.day-card p {
+			font-size: 16px;
+			line-height: 1.75;
+			margin-bottom: 0;
+			color: #4a4a4a;
+		}
 
-      <div class="fh5co-narrow-content" id="local-transport">
-        <h1 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">Local transportation in Mérida</h1>
+		.practical-footer-note {
+			text-align: center;
+			font-size: 16px;
+			color: #666;
+			padding-top: 10px;
+			padding-bottom: 30px;
+		}
 
-        <div class="row row-bottom-padded-md">
-          <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
-            <p style="font-size: 18px;">
-              The historic center is very walkable, and ride options are widely available.
-            </p>
+		@media screen and (max-width: 768px) {
+			.hero-subtitle {
+				font-size: 18px;
+			}
 
-            <ul style="font-size: 18px;">
-              <li><strong>UBER</strong> or <strong>DiDi</strong> service (easy and reliable)</li>
-              <li><strong>Local taxis (taxímetro)</strong></li>
-              <li><strong>Local buses “Va y Ven”</strong> (requires a bus card) — cost approx.: <strong>0.70 USD</strong></li>
-            </ul>
+			.hero-mini-nav a {
+				font-size: 12px;
+				padding: 8px 12px;
+				margin: 4px 4px;
+			}
 
-            <div class="alert alert-warning" style="margin-top: 15px; font-size: 16px;">
-              <strong>Note:</strong> For “Va y Ven”, you usually need a rechargeable card. If you plan to use buses,
-              buy the card early and keep small cash for convenience.
-            </div>
-          </div>
-        </div>
-      </div>
+			.info-card {
+				padding: 22px 20px;
+			}
 
-      <div class="fh5co-narrow-content" id="evenings">
-        <h1 class="fh5co-heading animate-box" data-animate-effect="fadeInLeft">What to do in Mérida during evenings</h1>
+			.info-card h3 {
+				font-size: 24px;
+			}
 
-        <div class="row row-bottom-padded-md">
-          <div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
+			.info-card h4 {
+				font-size: 19px;
+			}
 
-            <p style="font-size: 18px;">
-              Mérida offers free cultural events almost every night, mainly in the historic center.
-              Times and locations can occasionally change, so feel free to double-check locally.
-            </p>
+			.info-card p,
+			.info-card li,
+			.day-card p {
+				font-size: 16px;
+			}
+		}
+	</style>
+</head>
 
-            <div class="panel panel-default">
-              <div class="panel-heading"><h3 class="panel-title">Monday</h3></div>
-              <div class="panel-body" style="font-size: 18px;">
-                <strong>Vaquería Yucateca</strong> (Traditional regional dance of Yucatán)<br/>
-                <strong>Location:</strong> City House (Palacio Municipal)<br/>
-                <strong>Time:</strong> 21:00 hrs
-              </div>
-            </div>
+<body>
+	<div id="fh5co-page">
+		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 
-            <div class="panel panel-default">
-              <div class="panel-heading"><h3 class="panel-title">Tuesday</h3></div>
-              <div class="panel-body" style="font-size: 18px;">
-                <strong>“Remembranzas Musicales”</strong> (Popular music from the 1940s, mostly Danzón)<br/>
-                <strong>Location:</strong> Santiago’s Park, Downtown<br/>
-                <strong>Time:</strong> 20:30 hrs
-              </div>
-            </div>
+		<aside id="fh5co-aside" role="complementary" class="border js-fullheight">
+			<h1 id="fh5co-logo">
+				<a href="index.html">
+					<img src="images/im_logo.png" alt="Conference Logo" style="max-width: 100%; height: auto;">
+				</a>
+			</h1>
 
-            <div class="panel panel-default">
-              <div class="panel-heading"><h3 class="panel-title">Wednesday</h3></div>
-              <div class="panel-body" style="font-size: 18px;">
-                <strong>Recorrido por el Cementerio de Mérida</strong> (Guided tour to the cemetery of Mérida)<br/>
-                <strong>Time:</strong> 20:00 hrs<br/><br/>
-                <strong>“Noche de las Culturas”</strong> (Cultural Nights)<br/>
-                <strong>Meeting point:</strong> Francisco de Montejo / Montejo’s House (Downtown)<br/>
-                <strong>Time:</strong> 20:30 hrs
-              </div>
-            </div>
+			<nav id="fh5co-main-menu" role="navigation">
+				<ul>
+					<li><a href="index.html">Home</a></li>
+					<li><a href="venue.html">Venue</a></li>
+					<li><a href="speakers.html">Speakers</a></li>
+					<li><a href="program.html">Program</a></li>
+					<li><a href="caf.html">Call for <br>abstracts</a></li>
+					<li><a href="sponsors.html">Sponsors</a></li>
+					<li class="fh5co-active"><a href="practical.html" style="color: darkorange;">Practical <br>info</a></li>
+					<li><a href="about.html">Mérida and <br>dia de muertos</a></li>
+				</ul>
+			</nav>
+		</aside>
 
-            <div class="panel panel-default">
-              <div class="panel-heading"><h3 class="panel-title">Thursday</h3></div>
-              <div class="panel-body" style="font-size: 18px;">
-                <strong>Serenata</strong> (Serenade)<br/>
-                <strong>Location:</strong> Santa Lucía Park<br/>
-                <strong>Time:</strong> 21:00 hrs<br/><br/>
+		<div id="fh5co-main">
 
-                <strong>“En el Corazón de Mérida”</strong><br/>
-                <strong>When:</strong> Thursday to Saturday — 20:00 to 02:00 hrs<br/>
-                <em>
-                  A full street in the city center is closed so that restaurants, musical groups,
-                  local artists and artisans can exhibit in a festive open-air atmosphere.
-                </em>
-              </div>
-            </div>
+			<aside id="fh5co-hero" class="js-fullheight">
+				<div class="flexslider js-fullheight">
+					<ul class="slides">
+						<li style="background-image: url(images/im_1_fond.jpg);">
+							<div class="overlay"></div>
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-md-8 col-md-offset-2 text-center js-fullheight slider-text">
+										<div class="slider-text-inner">
+											<h1 style="color: darkorange;">Practical Information</h1>
+											<p class="hero-subtitle">
+												Travel to Mérida, local transportation, covered expenses, and ideas for enjoying the city during the conference.
+											</p>
 
-            <div class="panel panel-default">
-              <div class="panel-heading"><h3 class="panel-title">Friday</h3></div>
-              <div class="panel-body" style="font-size: 18px;">
-                <strong>Video mapping “Piedras Sagradas”</strong><br/>
-                <strong>Location:</strong> Cathedral of Mérida<br/>
-                <strong>Time:</strong> 20:30 hrs
-              </div>
-            </div>
+											<div class="hero-mini-nav">
+												<a href="#covered">Covered expenses</a>
+												<a href="#getting-there">Getting to Mérida</a>
+												<a href="#local-transport">Local transportation</a>
+												<a href="#evenings">Evening activities</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</aside>
 
-            <div class="panel panel-default">
-              <div class="panel-heading"><h3 class="panel-title">Saturday</h3></div>
-              <div class="panel-body" style="font-size: 18px;">
-                <strong>Mexican Night</strong><br/>
-                <strong>Location:</strong> End of Paseo Montejo<br/>
-                <strong>Time:</strong> Starting at 20:00 hrs<br/><br/>
+			<div class="fh5co-narrow-content" id="covered">
+				<h1 class="fh5co-heading animate-box">Practical Information</h1>
+				<p class="section-intro animate-box">
+					Below you will find the main logistical information for the conference. The aim is to make planning your stay in Mérida as easy as possible.
+				</p>
 
-                <strong>Mayan ball game “Pok Ta Pok”</strong><br/>
-                <strong>Location:</strong> Beside the Cathedral of Mérida<br/>
-                <strong>Time:</strong> 20:30 hrs
-              </div>
-            </div>
+				<div class="info-card animate-box" data-animate-effect="fadeInLeft">
+					<h3>Covered expenses</h3>
+					<p>
+						The organizing committee will cover the costs of the <strong>venue</strong>, <strong>coffee breaks</strong>,
+						the <strong>social activity</strong>, and the <strong>conference dinner</strong>.
+					</p>
+					<p>
+						Participants will be responsible for their own <strong>travel</strong> and <strong>accommodation</strong>.
+					</p>
+				</div>
+			</div>
 
-            <div class="alert alert-success" style="margin-top: 20px; font-size: 16px;">
-              We hope you will enjoy this symposium and Mérida City!
-            </div>
+			<div class="fh5co-narrow-content" id="getting-there">
+				<div class="info-card animate-box" data-animate-effect="fadeInLeft">
+					<h3>How to get to Mérida</h3>
+					<p>
+						Mérida, the capital of Yucatán, is accessible by <strong>plane</strong>, <strong>bus</strong>, or <strong>car</strong>.
+						The main airport is <strong>Manuel Crescencio Rejón International Airport (MID)</strong>, located approximately
+						<strong>15 to 25 minutes</strong> from the city center.
+					</p>
 
-          </div>
-        </div>
-      </div>
+					<h4>By plane</h4>
+					<ul>
+						<li>Direct flights to <strong>Mérida (MID)</strong> are available from several hubs, especially within Mexico and from some U.S. cities.</li>
+						<li>For international travelers, the most common connections are via <strong>Mexico City (MEX)</strong> or <strong>Cancún (CUN)</strong>.</li>
+					</ul>
 
-      <div class="fh5co-narrow-content">
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <p style="font-size: 16px; opacity: 0.8;">
-              Questions? Contact the organizing committee.
-            </p>
-          </div>
-        </div>
-      </div>
+					<div class="soft-note">
+						<strong>Tip:</strong> If you arrive in Cancún, reaching Mérida by bus is usually a comfortable and straightforward option.
+					</div>
 
-    </div>
-  </div>
+					<h4>From Cancún by bus</h4>
+					<ul>
+						<li>Company: <strong>ADO</strong></li>
+						<li>Typical duration: <strong>around 4 hours</strong>, depending on the service</li>
+						<li>Arrival: ADO terminal in Mérida, close to the city center</li>
+					</ul>
 
-  <!-- JS -->
-  <script src="js/jquery.min.js"></script>
-  <script src="js/jquery.easing.1.3.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script src="js/jquery.waypoints.min.js"></script>
-  <script src="js/jquery.flexslider-min.js"></script>
-  <script src="js/main.js"></script>
+					<h4>From Cancún by car</h4>
+					<ul>
+						<li>Travel time: approximately <strong>3.5 to 4 hours</strong></li>
+						<li>A toll highway is available and is generally the most convenient option</li>
+					</ul>
+				</div>
+			</div>
 
-  </body>
+			<div class="fh5co-narrow-content" id="local-transport">
+				<div class="info-card animate-box" data-animate-effect="fadeInLeft">
+					<h3>Local transportation in Mérida</h3>
+					<p>
+						The historic center is quite walkable, and several transportation options are available for moving around the city.
+					</p>
+
+					<ul>
+						<li><strong>Uber</strong> and <strong>DiDi</strong> are widely used and generally reliable</li>
+						<li><strong>Local taxis</strong> are also available</li>
+						<li><strong>Va y Ven buses</strong> can be used for public transportation, usually with a rechargeable transport card</li>
+					</ul>
+
+					<div class="soft-note">
+						<strong>Note:</strong> If you plan to use local buses, it is often useful to purchase the transport card early. For short stays, ride-hailing apps are usually the easiest option.
+					</div>
+				</div>
+			</div>
+
+			<div class="fh5co-narrow-content" id="evenings">
+				<h1 class="fh5co-heading animate-box">What to do in Mérida during the evenings</h1>
+				<p class="section-intro animate-box">
+					Mérida frequently hosts free cultural activities in the historic center. These events are a great way to discover the city after the conference sessions.
+				</p>
+
+				<div class="day-card animate-box">
+					<h4>Monday</h4>
+					<p>
+						<strong>Vaquería Yucateca</strong><br>
+						Traditional regional dance of Yucatán<br>
+						<strong>Location:</strong> Palacio Municipal<br>
+						<strong>Time:</strong> 21:00
+					</p>
+				</div>
+
+				<div class="day-card animate-box">
+					<h4>Tuesday</h4>
+					<p>
+						<strong>Remembranzas Musicales</strong><br>
+						Popular music from the 1940s, especially danzón<br>
+						<strong>Location:</strong> Santiago Park, downtown<br>
+						<strong>Time:</strong> 20:30
+					</p>
+				</div>
+
+				<div class="day-card animate-box">
+					<h4>Wednesday</h4>
+					<p>
+						<strong>Recorrido por el Cementerio de Mérida</strong><br>
+						Guided visit of Mérida’s cemetery<br>
+						<strong>Time:</strong> 20:00
+						<br><br>
+						<strong>Noche de las Culturas</strong><br>
+						<strong>Meeting point:</strong> Casa de Montejo, downtown<br>
+						<strong>Time:</strong> 20:30
+					</p>
+				</div>
+
+				<div class="day-card animate-box">
+					<h4>Thursday</h4>
+					<p>
+						<strong>Serenata</strong><br>
+						<strong>Location:</strong> Santa Lucía Park<br>
+						<strong>Time:</strong> 21:00
+						<br><br>
+						<strong>En el Corazón de Mérida</strong><br>
+						Usually held from Thursday to Saturday in the city center, with restaurants, musicians, artisans, and a festive open-air atmosphere.
+					</p>
+				</div>
+
+				<div class="day-card animate-box">
+					<h4>Friday</h4>
+					<p>
+						<strong>Video mapping “Piedras Sagradas”</strong><br>
+						<strong>Location:</strong> Cathedral of Mérida<br>
+						<strong>Time:</strong> 20:30
+					</p>
+				</div>
+
+				<div class="day-card animate-box">
+					<h4>Saturday</h4>
+					<p>
+						<strong>Mexican Night</strong><br>
+						<strong>Location:</strong> end of Paseo de Montejo<br>
+						<strong>Time:</strong> from 20:00
+						<br><br>
+						<strong>Pok Ta Pok</strong><br>
+						Traditional Mayan ball game reenactment<br>
+						<strong>Location:</strong> beside the Cathedral of Mérida<br>
+						<strong>Time:</strong> 20:30
+					</p>
+				</div>
+
+				<div class="soft-note animate-box" style="margin-top: 24px;">
+					These activities may occasionally change in schedule or location, so it is always a good idea to confirm locally once you arrive.
+				</div>
+			</div>
+
+			<div class="fh5co-narrow-content">
+				<p class="practical-footer-note">
+					We hope you will enjoy both the symposium and your stay in Mérida.
+				</p>
+			</div>
+
+		</div>
+	</div>
+
+	<!-- JS -->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/jquery.easing.1.3.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.waypoints.min.js"></script>
+	<script src="js/jquery.flexslider-min.js"></script>
+	<script src="js/main.js"></script>
+</body>
 </html>
