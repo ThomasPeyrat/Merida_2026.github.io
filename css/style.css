@@ -234,7 +234,7 @@ figure figcaption {
   transform: scaleX(1);
 }
 #fh5co-aside #fh5co-main-menu ul li.fh5co-active a {
-  color: black;
+  color: darkorange;
 }
 #fh5co-aside #fh5co-main-menu ul li.fh5co-active a:after {
   visibility: visible;
@@ -1201,6 +1201,50 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
 /*# sourceMappingURL=style.css.map */
 
 
+
+/* ===== Program calendar (FullCalendar) — responsive ===== */
+#calendar {
+  max-width: 1150px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+/* List view (mobile): keep the same talk colors as the grid */
+.fc-list-event.ltalk,
+.fc-list-event.mtalk,
+.fc-list-event.stalk {
+  cursor: pointer;
+}
+.fc-list-event.ltalk a,
+.fc-list-event.mtalk a,
+.fc-list-event.stalk a {
+  color: inherit !important;
+}
+.fc .fc-list-event:hover td {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+@media screen and (max-width: 768px) {
+  #calendar {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .fc .fc-toolbar-title {
+    font-size: 1.15em;
+    color: #08345b;
+  }
+  .fc .fc-toolbar.fc-header-toolbar {
+    margin-bottom: 0.6em;
+  }
+  .fc .fc-button {
+    padding: 0.3em 0.65em;
+    font-size: 0.9em;
+  }
+  .fc .fc-list-event-title,
+  .fc .fc-list-event-time {
+    font-size: 14px;
+  }
+}
 
 /* ===== Mobile-first overrides (add at END of style.css) ===== */
 :root{
