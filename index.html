@@ -54,6 +54,28 @@
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="css/style.css">
 
+	<!-- Home page partner logos (3 tiers) -->
+	<style>
+		.partner-logos{ padding-top: 10px; padding-bottom: 60px; }
+		.logo-tier{ max-width: 900px; margin: 0 auto; padding: 22px 0; text-align: center; }
+		.logo-tier + .logo-tier{ border-top: 1px solid rgba(8, 52, 91, 0.12); }
+		.logo-tier-label{
+			margin: 0 0 16px;
+			font-size: 12px; font-weight: 500;
+			letter-spacing: 2px; text-transform: uppercase;
+			color: #08345b;
+		}
+		.logo-row{
+			display: flex; flex-wrap: wrap;
+			justify-content: center; align-items: center;
+			gap: 30px;
+		}
+		/* blend white / off-white logo backgrounds into the page background */
+		.logo-row img{ mix-blend-mode: multiply; max-width: 100%; }
+		.logo-row a{ display: inline-block; transition: opacity .2s; }
+		.logo-row a:hover{ opacity: .75; }
+	</style>
+
 	<!-- Modernizr JS -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<!-- FOR IE9 below -->
@@ -288,27 +310,38 @@
 		</div>
 
 
-		<div class="fh5co-narrow-content" >
+		<div class="fh5co-narrow-content partner-logos">
 
-			<div data-animate-effect="fadeInLeft">
-				<div class="col-md-12">
-				<div style="
-					display: flex;
-					flex-wrap: wrap;
-					justify-content: center;
-					align-items: center;
-					gap: 30px;
-				">
+			<!-- Tier 1 : institutions -->
+			<div class="logo-tier">
+				<p class="logo-tier-label">Institutions</p>
+				<div class="logo-row">
 					<img src="images/logo_CIMAT.jpg" alt="CIMAT" style="height: 45px;">
-					<img src="images/logo_ETH.jpg" alt="ETH" style="height: 45px;">
-					<img src="images/logo_IMT.jpg" alt="IMT" style="height: 50px;">
-					<img src="images/scor_logo_for_science.png" alt="SCOR" style="height: 40px;">
+					<img src="images/logo_ETH.jpg" alt="ETH Zurich" style="height: 45px;">
+					<img src="images/logo_IMT.jpg" alt="Institut de Mathématiques de Toulouse" style="height: 50px;">
 					<img src="images/logo_CREST.jpg" alt="CREST" style="height: 65px;">
-					<img src="images/logo_Exiom.png" alt="Exiom" style="height: 30px;">
-					<img src="images/FR-MX_LOGOTIPO.jpg" alt="Exiom" style="height: 75px;">
-				</div>
+					<img src="images/FR-MX_LOGOTIPO.jpg" alt="France–Mexico bicentennial" style="height: 75px;">
 				</div>
 			</div>
+
+			<!-- Tier 2 : sponsoring chairs (details on sponsors.html) -->
+			<div class="logo-tier">
+				<p class="logo-tier-label">Sponsoring chairs</p>
+				<div class="logo-row">
+					<a href="sponsors.html"><img src="images/logo_ACTIONS_home.jpg" alt="Chaire ACTIONS" style="height: 85px;"></a>
+					<a href="sponsors.html"><img src="images/logo_ILB_home.png" alt="Institut Louis Bachelier" style="height: 50px;"></a>
+				</div>
+			</div>
+
+			<!-- Tier 3 : industry partners -->
+			<div class="logo-tier">
+				<p class="logo-tier-label">Industry partners</p>
+				<div class="logo-row">
+					<img src="images/scor_logo_for_science.png" alt="SCOR Foundation for Science" style="height: 40px;">
+					<img src="images/logo_Exiom.png" alt="Exiom Partners" style="height: 30px;">
+				</div>
+			</div>
+
 		</div>
 
 

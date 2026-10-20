@@ -156,6 +156,130 @@
 			padding-bottom: 30px;
 		}
 
+		/* ---------- Lunch near the venue ---------- */
+		.lunch-legend {
+			font-size: 15px;
+			color: #666;
+			margin: 4px 0 18px;
+		}
+		.lunch-filters { margin-bottom: 8px; }
+		.lunch-filter-row {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			gap: 8px;
+			margin-bottom: 10px;
+		}
+		.lunch-filter-label {
+			font-size: 12px;
+			font-weight: 500;
+			letter-spacing: 1.5px;
+			text-transform: uppercase;
+			color: #08345b;
+			min-width: 64px;
+		}
+		.lunch-chip {
+			border: 1px solid rgba(8, 52, 91, 0.25);
+			background: #fff;
+			color: #1f2d3d;
+			border-radius: 20px;
+			padding: 6px 14px;
+			font-size: 14px;
+			line-height: 1.4;
+			cursor: pointer;
+			transition: 0.2s ease;
+		}
+		.lunch-chip:hover { border-color: darkorange; color: darkorange; }
+		.lunch-chip[aria-pressed="true"] {
+			background: #08345b;
+			border-color: #08345b;
+			color: #fff;
+		}
+		.lunch-count {
+			font-size: 14px;
+			color: #888;
+			margin: 6px 0 4px;
+		}
+		.lunch-group-title {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: baseline;
+			column-gap: 10px;
+			row-gap: 2px;
+			margin: 26px 0 12px;
+			padding-bottom: 6px;
+			border-bottom: 1px solid rgba(8, 52, 91, 0.12);
+			font-size: 20px;
+			font-weight: 500;
+			color: #1f2d3d;
+		}
+		.lunch-group-title small {
+			font-size: 14px;
+			font-weight: 300;
+			color: #777;
+		}
+		.lunch-grid {
+			display: grid;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			gap: 14px;
+		}
+		.lunch-card {
+			display: flex;
+			align-items: flex-start;
+			gap: 14px;
+			background: #fff;
+			border-radius: 12px;
+			padding: 14px 16px;
+			box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+			border-top: 3px solid transparent;
+		}
+		.lunch-card.is-quick { border-top-color: darkorange; }
+		.lunch-time {
+			flex: 0 0 auto;
+			min-width: 54px;
+			text-align: center;
+			border-radius: 10px;
+			padding: 6px 4px;
+			background: rgba(8, 52, 91, 0.07);
+			color: #08345b;
+			line-height: 1.1;
+		}
+		.lunch-card.is-quick .lunch-time {
+			background: rgba(255, 140, 0, 0.12);
+			color: #b85c00;
+		}
+		.lunch-time strong { display: block; font-size: 20px; font-weight: 500; }
+		.lunch-time span { font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+		.lunch-body { min-width: 0; }
+		.lunch-name {
+			display: block;
+			font-size: 17px;
+			font-weight: 500;
+			color: #1f2d3d;
+			line-height: 1.35;
+			margin-bottom: 2px;
+		}
+		a.lunch-name:hover { color: darkorange; text-decoration: none; }
+		.lunch-name i { font-size: 13px; color: darkorange; margin-left: 4px; }
+		.lunch-meta { font-size: 14px; color: #4a4a4a; line-height: 1.5; }
+		.lunch-meta .lunch-price { color: #08345b; font-weight: 500; letter-spacing: 1px; }
+		.lunch-addr { font-size: 13px; color: #888; line-height: 1.5; margin-top: 2px; }
+		.lunch-empty {
+			display: none;
+			padding: 18px;
+			text-align: center;
+			color: #777;
+			font-size: 15px;
+		}
+
+		@media screen and (max-width: 991px) {
+			.lunch-grid { grid-template-columns: 1fr; }
+		}
+		@media screen and (max-width: 768px) {
+			.lunch-filter-label { min-width: 100%; }
+			.lunch-chip { font-size: 13px; padding: 5px 11px; }
+		}
+
 		@media screen and (max-width: 768px) {
 			.hero-subtitle {
 				font-size: 18px;
@@ -233,6 +357,7 @@
 												<a href="#covered">Covered expenses</a>
 												<a href="#getting-there">Getting to Mérida</a>
 												<a href="#local-transport">Local transportation</a>
+												<a href="#lunch">Lunch near the venue</a>
 												<a href="#evenings">Evening activities</a>
 											</div>
 										</div>
@@ -257,7 +382,10 @@
 						the <strong>social activity</strong>, and the <strong>conference dinner</strong>.
 					</p>
 					<p>
-						Participants will be responsible for their own <strong>travel</strong> and <strong>accommodation</strong>. The hotel conference with preferential rates  can be find in the <a href="venue.html#hotels" style="color: darkorange; text-decoration: underline;">Venue</a> section of the website.
+						Participants will be responsible for their own <strong>travel</strong> and <strong>accommodation</strong>. The conference hotel with preferential rates can be found in the <a href="venue.html#hotels" style="color: darkorange; text-decoration: underline;">Venue</a> section of the website.
+					</p>
+					<p>
+						<strong>Lunches</strong> are not covered. You will find a list of restaurants within walking distance of the venue in the <a href="#lunch" style="color: darkorange; text-decoration: underline;">Lunch near the venue</a> section below.
 					</p>
 				</div>
 			</div>
@@ -311,6 +439,54 @@
 
 					<div class="soft-note">
 						<strong>Note:</strong> If you plan to use local buses, it is often useful to purchase the transport card early. For short stays, ride-hailing apps are usually the easiest option.
+					</div>
+				</div>
+			</div>
+
+			<div class="fh5co-narrow-content" id="lunch">
+				<div class="info-card animate-box" data-animate-effect="fadeInLeft">
+					<h3>Lunch near the venue</h3>
+					<p>
+						The lunch break runs from <strong>12:45 to 14:15</strong> (Tuesday, Wednesday and Friday). Lunch is on your own, and the historic center around the Faculty of Architecture offers plenty of options.
+						Restaurants are sorted by walking time from the venue; those within 15 minutes are the most practical for the lunch break.
+					</p>
+					<p class="lunch-legend">
+						Price: <strong>$</strong> budget &middot; <strong>$$</strong> mid-range &middot; <strong>$$$</strong> higher-end. Walking times are estimates computed from the Faculty of Architecture. Click a name to open it in Google Maps.
+					</p>
+
+					<div class="lunch-filters" role="group" aria-label="Filter restaurants">
+						<div class="lunch-filter-row" id="lunch-filter-cuisine">
+							<span class="lunch-filter-label">Cuisine</span>
+							<button type="button" class="lunch-chip" data-cuisine="all" aria-pressed="true">All</button>
+							<button type="button" class="lunch-chip" data-cuisine="mex" aria-pressed="false">Mexican &amp; Yucatecan</button>
+							<button type="button" class="lunch-chip" data-cuisine="sea" aria-pressed="false">Seafood</button>
+							<button type="button" class="lunch-chip" data-cuisine="ita" aria-pressed="false">Italian</button>
+							<button type="button" class="lunch-chip" data-cuisine="world" aria-pressed="false">International</button>
+							<button type="button" class="lunch-chip" data-cuisine="cafe" aria-pressed="false">Caf&eacute;s &amp; snacks</button>
+						</div>
+						<div class="lunch-filter-row" id="lunch-filter-price">
+							<span class="lunch-filter-label">Price</span>
+							<button type="button" class="lunch-chip" data-price="all" aria-pressed="true">Any</button>
+							<button type="button" class="lunch-chip" data-price="1" aria-pressed="false">$</button>
+							<button type="button" class="lunch-chip" data-price="2" aria-pressed="false">$$</button>
+							<button type="button" class="lunch-chip" data-price="3" aria-pressed="false">$$$</button>
+						</div>
+					</div>
+
+					<p class="lunch-count" id="lunch-count" aria-live="polite"></p>
+
+					<div id="lunch-quick-wrap">
+						<div class="lunch-group-title">Quick lunch <small>15 min or less</small></div>
+						<div class="lunch-grid" id="lunch-quick"></div>
+					</div>
+					<div id="lunch-further-wrap">
+						<div class="lunch-group-title">A bit further <small>more than 15 min &mdash; better for a longer break or the evening</small></div>
+						<div class="lunch-grid" id="lunch-further"></div>
+					</div>
+					<div class="lunch-empty" id="lunch-empty">No restaurant matches these filters.</div>
+
+					<div class="soft-note">
+						<strong>Tip:</strong> for groups, it is worth heading out right at 12:45 &mdash; service can take a while at peak lunch time. Opening hours may vary, so check before you go.
 					</div>
 				</div>
 			</div>
@@ -410,5 +586,121 @@
 	<script src="js/jquery.waypoints.min.js"></script>
 	<script src="js/jquery.flexslider-min.js"></script>
 	<script src="js/main.js"></script>
+
+	<!-- Lunch near the venue: data + filters -->
+	<script>
+	(function () {
+		// t = walking time in minutes, d = walking distance in metres, from the venue
+		// (Facultad de Arquitectura UADY, Calle 50, Parque de la Mejorada).
+		// Computed with OpenStreetMap foot routing (routing.openstreetmap.de), October 2026.
+		// c = filter category: mex | sea | ita | world | cafe
+		// p = [min, max] price level (1 = $, 2 = $$, 3 = $$$)
+		var RESTAURANTS = [
+			{ n: "Los Almendros",                     a: "Calle 50A #493, Centro",                        f: "Mexican",                 c: "mex",   p: [2,2], t:  2, d:  114 },
+			{ n: "El Templo Gastro-Barrio",           a: "Calle 59 #448, La Quinta",                      f: "Mexican · beer",          c: "mex",   p: [2,3], t:  2, d:  163 },
+			{ n: "Pancho Maíz",                       a: "Calle 59 #437A, Centro",                        f: "Mexican",                 c: "mex",   p: [1,1], t:  4, d:  308 },
+			{ n: "Coyote Maya",                       a: "Calle 60 #501A (between 57 & 59), Centro",      f: "Mexican · Latin",         c: "mex",   p: [2,2], t: 10, d:  776 },
+			{ n: "La Parrilla Colonial Mérida",       a: "Corner of Calle 60 & 59, Centro",               f: "Mexican · Latin",         c: "mex",   p: [2,3], t: 11, d:  790 },
+			{ n: "Taquería de la Unión",              a: "Calle 55 #488, Centro",                         f: "Mexican",                 c: "mex",   p: [2,2], t: 11, d:  797 },
+			{ n: "Bistrola 57",                       a: "Calle 60 #488 (by Calle 57), Centro",           f: "Restaurant & bar",        c: "cafe",  p: [2,2], t: 11, d:  805 },
+			{ n: "Amaro",                             a: "Calle 59 #507 (between 60 & 62), Centro",       f: "Italian",                 c: "ita",   p: [2,2], t: 11, d:  818 },
+			{ n: "Terraza Piedra de Agua",            a: "Calle 60 #496, near the Cathedral",             f: "Italian · Mexican",       c: "ita",   p: [2,3], t: 11, d:  848 },
+			{ n: "Pita Mediterranean Cuisine & Bar",  a: "Calle 55 #496, Santa Lucía Park",               f: "Mediterranean",           c: "world", p: [2,2], t: 11, d:  851 },
+			{ n: "Cafetería Pop",                     a: "Calle 57 #501 (between 60 & 62), Centro",       f: "Mexican",                 c: "mex",   p: [1,1], t: 12, d:  863 },
+			{ n: "Pancho's",                          a: "Calle 59 #509, Santa Lucía Park",               f: "Mexican",                 c: "mex",   p: [2,2], t: 12, d:  878 },
+			{ n: "Micaela Mar&Leña",                  a: "Calle 47 #458, Centro",                         f: "Seafood",                 c: "sea",   p: [2,2], t: 12, d:  884 },
+			{ n: "Mi Viejo Molino Santa Lucía",       a: "Calle 60 #481–483, Santa Lucía Park",           f: "Mexican · café",          c: "mex",   p: [2,3], t: 12, d:  898 },
+			{ n: "Estación 47",                       a: "Calle 47 #477 (by Calle 48), Centro",           f: "Mexican · Latin",         c: "mex",   p: [2,3], t: 12, d:  910 },
+			{ n: "Picheta",                           a: "Calle 61 #501, Centro",                         f: "Local & traditional",     c: "mex",   p: [3,3], t: 12, d:  928 },
+			{ n: "El Marlín Azul",                    a: "Calle 62 #488B, Santa Lucía Park",              f: "Seafood",                 c: "sea",   p: [2,2], t: 12, d:  931 },
+			{ n: "Restaurante Colonial",              a: "Calle 62 #476, Centro",                         f: "Mexican",                 c: "mex",   p: [2,2], t: 13, d:  935 },
+			{ n: "Peruano",                           a: "Calle 55 #502 (between 60 & 62), Centro",       f: "Peruvian",                c: "world", p: [2,2], t: 13, d:  937 },
+			{ n: "La Bierhaus",                       a: "Calle 62 #487A, Centro",                        f: "Coffee shop",             c: "cafe",  p: [2,2], t: 13, d:  948 },
+			{ n: "La Tratto Santa Lucía",             a: "Calle 60 #471 (between 53 & 55), Centro",       f: "Italian",                 c: "ita",   p: [2,2], t: 13, d:  974 },
+			{ n: "La Chaya Maya",                     a: "Calle 55 #510, Centro",                         f: "Traditional",             c: "mex",   p: [2,2], t: 13, d:  985 },
+			{ n: "El Trapiche",                       a: "Calle 62 #491, Centro",                         f: "Traditional",             c: "mex",   p: [1,1], t: 13, d:  987 },
+			{ n: "Teya Santa Lucía",                  a: "Calle 60 #468, Santa Lucía",                    f: "Mexican",                 c: "mex",   p: [3,3], t: 13, d:  998 },
+			{ n: "Steakhouse Mérida",                 a: "Calle 47, Centro",                              f: "Grill",                   c: "world", p: [2,2], t: 13, d: 1007 },
+			{ n: "Catrin",                            a: "Calle 47 #463B, Centro",                        f: "Mexican · Latin",         c: "mex",   p: [2,3], t: 14, d: 1029 },
+			{ n: "Don Spaghetto Centro",              a: "Calle 62 #509, Centro",                         f: "Italian",                 c: "ita",   p: [2,2], t: 16, d: 1165 },
+			{ n: "Las Vigas",                         a: "Calle 63 #501, Centro",                         f: "Coffee shop",             c: "cafe",  p: [2,2], t: 16, d: 1183 },
+			{ n: "Parceros",                          a: "Calle 34 #278, La Castellana",                  f: "Colombian",               c: "world", p: [2,2], t: 16, d: 1217 },
+			{ n: "Los Trompos",                       a: "Calle 60 #517C, Centro",                        f: "Mexican",                 c: "mex",   p: [2,2], t: 17, d: 1254 },
+			{ n: "JB Pastas, hamburguesas y snack",   a: "Calle 67 #449 (between 40 & 42), Centro",       f: "Snacks",                  c: "cafe",  p: [1,1], t: 17, d: 1267 },
+			{ n: "Cheen Cocina Yucateca",             a: "Calle 61 #352C (between 32 & 34), Centro",      f: "Regional (Yucatecan)",    c: "mex",   p: [2,2], t: 17, d: 1271 },
+			{ n: "Piazzere Pizza Bar",                a: "Calle 60 #421, Centro",                         f: "Italian",                 c: "ita",   p: [2,3], t: 20, d: 1465 },
+			{ n: "Restaurante Vikingos",              a: "Calle 50 #602, Centro",                         f: "Italian",                 c: "ita",   p: [1,1], t: 21, d: 1566 },
+			{ n: "Villa del Mar",                     a: "Calle 81 #484B, Centro",                        f: "Seafood",                 c: "sea",   p: [1,1], t: 28, d: 2113 }
+		];
+		var QUICK_MAX = 15;
+
+		var state = { cuisine: "all", price: "all" };
+
+		function esc(str) {
+			return String(str).replace(/[&<>"']/g, function (ch) {
+				return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch];
+			});
+		}
+		function dollars(k) { return new Array(k + 1).join("$"); }
+		function priceLabel(p) { return p[0] === p[1] ? dollars(p[0]) : dollars(p[0]) + "–" + dollars(p[1]); }
+		function distLabel(m) { return m < 1000 ? (Math.round(m / 10) * 10) + " m" : (m / 1000).toFixed(1) + " km"; }
+		function mapsUrl(r) {
+			var street = r.a.replace(/\s*\(.*?\)/g, "").replace(/#/g, "");
+			return "https://www.google.com/maps/search/?api=1&query=" +
+				encodeURIComponent(r.n + ", " + street + ", Mérida, Yucatán");
+		}
+		function card(r) {
+			var quick = r.t <= QUICK_MAX;
+			return '<div class="lunch-card' + (quick ? ' is-quick' : '') + '">' +
+				'<div class="lunch-time"><strong>' + r.t + '</strong><span>min</span></div>' +
+				'<div class="lunch-body">' +
+					'<a class="lunch-name" href="' + mapsUrl(r) + '" target="_blank" rel="noopener noreferrer">' +
+						esc(r.n) + '<i class="icon-location" aria-hidden="true"></i></a>' +
+					'<div class="lunch-meta">' + esc(r.f) + ' &middot; <span class="lunch-price">' + priceLabel(r.p) + '</span> &middot; ' + distLabel(r.d) + '</div>' +
+					'<div class="lunch-addr">' + esc(r.a) + '</div>' +
+				'</div>' +
+			'</div>';
+		}
+		function matches(r) {
+			if (state.cuisine !== "all" && r.c !== state.cuisine) return false;
+			if (state.price !== "all") {
+				var k = +state.price;
+				if (k < r.p[0] || k > r.p[1]) return false;
+			}
+			return true;
+		}
+		function render() {
+			var list = RESTAURANTS.filter(matches).sort(function (x, y) { return x.t - y.t; });
+			var quick = list.filter(function (r) { return r.t <= QUICK_MAX; });
+			var further = list.filter(function (r) { return r.t > QUICK_MAX; });
+
+			document.getElementById("lunch-quick").innerHTML = quick.map(card).join("");
+			document.getElementById("lunch-further").innerHTML = further.map(card).join("");
+			document.getElementById("lunch-quick-wrap").style.display = quick.length ? "" : "none";
+			document.getElementById("lunch-further-wrap").style.display = further.length ? "" : "none";
+			document.getElementById("lunch-empty").style.display = list.length ? "none" : "block";
+			document.getElementById("lunch-count").textContent =
+				list.length === RESTAURANTS.length
+					? RESTAURANTS.length + " restaurants"
+					: list.length + " of " + RESTAURANTS.length + " restaurants";
+		}
+		function bindRow(rowId, key, attr) {
+			var row = document.getElementById(rowId);
+			row.addEventListener("click", function (e) {
+				var btn = e.target.closest("button[" + attr + "]");
+				if (!btn) return;
+				state[key] = btn.getAttribute(attr);
+				Array.prototype.forEach.call(row.querySelectorAll("button[" + attr + "]"), function (b) {
+					b.setAttribute("aria-pressed", b === btn ? "true" : "false");
+				});
+				render();
+			});
+		}
+
+		bindRow("lunch-filter-cuisine", "cuisine", "data-cuisine");
+		bindRow("lunch-filter-price", "price", "data-price");
+		render();
+	})();
+	</script>
 </body>
 </html>
