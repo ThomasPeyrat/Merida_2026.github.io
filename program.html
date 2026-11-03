@@ -119,11 +119,118 @@
 					function toolbarFor(isMobile) {
 						return isMobile
 							? { left: 'prev,next', center: 'title', right: '' }
-							: { left: 'title', center: '', right: 'today prev,next' };
+							: { left: 'title', center: '', right: '' };
+					}
+
+					// ============================================================= //
+					//    SESSION CHAIRS                                              //
+					//    One entry per block of talks, i.e. between two breaks,      //
+					//    or between the start/end of a day and a break.              //
+					//    Fill in `chair` (leave '' to display "tbd").                //
+					//    If a talk moves across a break, update start/end here too.  //
+					// ============================================================= //
+					var sessions = [
+						// Tuesday 3
+						{ start: '2026-11-03T09:30:00', end: '2026-11-03T10:45:00', chair: 'Daniel Hernández' },
+						{ start: '2026-11-03T11:15:00', end: '2026-11-03T12:45:00', chair: 'Stéphane Loisel' },
+						{ start: '2026-11-03T14:15:00', end: '2026-11-03T15:45:00', chair: 'Anis Matoussi' },
+						{ start: '2026-11-03T16:15:00', end: '2026-11-03T17:30:00', chair: 'Christa Cuchiero' },
+						// Wednesday 4
+						{ start: '2026-11-04T09:00:00', end: '2026-11-04T10:45:00', chair: 'Caroline Hillairet' },
+						{ start: '2026-11-04T11:15:00', end: '2026-11-04T12:45:00', chair: 'Dylan Possamaï' },
+						{ start: '2026-11-04T14:15:00', end: '2026-11-04T15:45:00', chair: 'Henry Panti' },
+						// Thursday 5
+						{ start: '2026-11-05T14:15:00', end: '2026-11-05T15:45:00', chair: 'Anthony Réveillac' },
+						{ start: '2026-11-05T16:15:00', end: '2026-11-05T17:30:00', chair: 'Giorgia Callegaro' },
+						// Friday 6
+						{ start: '2026-11-06T09:00:00', end: '2026-11-06T10:45:00', chair: 'Thomas Peyrat' },
+						{ start: '2026-11-06T11:15:00', end: '2026-11-06T13:00:00', chair: 'Mike Ludkovski' },
+					];
+
+					var TALK_CLASSES = ['ltalk', 'mtalk', 'stalk'];
+
+					function chairName(s) {
+						return (s.chair && s.chair.trim()) ? s.chair.trim() : 'tbd';
+					}
+					function isTalk(ev) {
+						return ev.classNames.some(function (c) { return TALK_CLASSES.indexOf(c) !== -1; });
+					}
+					function isSession(ev) {
+						return ev.classNames.indexOf('session-chair') !== -1;
+					}
+					function sessionOf(date) {
+						var t = date.getTime();
+						for (var i = 0; i < sessions.length; i++) {
+							if (t >= new Date(sessions[i].start).getTime() && t < new Date(sessions[i].end).getTime()) return sessions[i];
+						}
+						return null;
+					}
+					function hhmm(d) {
+						return ('0' + d.getHours()).slice(-2) + ':' + ('0' + d.getMinutes()).slice(-2);
+					}
+
+					// Desktop grid: background band on the left of each session.
+					// Mobile list: a header row placed just before the first talk of the session.
+					function sessionSource(isMobile) {
+						return {
+							id: 'sessions',
+							events: sessions.map(function (s, i) {
+								return {
+									title: 'Session chair: ' + chairName(s),
+									start: s.start,
+									end: s.end,
+									display: isMobile ? 'auto' : 'background',
+									classNames: ['session-chair'],
+									extendedProps: { sessionIndex: i },
+								};
+							}),
+						};
+					}
+
+					// Shorten the vertical label if it does not fit the band:
+					// "First Last" -> "F. Last" -> ellipsis.
+					function fitRails() {
+						document.querySelectorAll('.session-rail-name').forEach(function (el) {
+							var full = el.getAttribute('data-full');
+							el.textContent = full;
+							var label = el.parentNode;
+							if (label.scrollHeight > label.clientHeight) {
+								var parts = full.split(/\s+/);
+								if (parts.length > 1) el.textContent = parts[0].charAt(0) + '. ' + parts.slice(1).join(' ');
+							}
+						});
+					}
+					var fitPending = false;
+					function scheduleFit() {
+						if (fitPending) return;
+						fitPending = true;
+						setTimeout(function () { fitPending = false; fitRails(); }, 50);
+					}
+
+					function openModal(title, body) {
+						document.getElementById('eventModalTitle').innerHTML = title;
+						document.getElementById('eventModalBody').innerHTML = body;
+						$('#eventModal').modal('show');
+					}
+
+					function openSessionModal(calendarRef, s) {
+						var start = new Date(s.start), end = new Date(s.end);
+						var talks = calendarRef.getEvents().filter(function (ev) {
+							return isTalk(ev) && ev.start >= start && ev.start < end;
+						}).sort(function (a, b) { return a.start - b.start; });
+						var day = start.toLocaleDateString('en-GB', { weekday: 'long', day: 'numeric', month: 'long' });
+						var body = "<strong style='color:#08345b;'>Chair:</strong> " + chairName(s) + "<br><br>" +
+							"<strong style='color:#08345b;'>Talks:</strong><br>" +
+							talks.map(function (ev) { return hhmm(ev.start) + ' – ' + ev.title.trim(); }).join('<br>');
+						openModal('Session · ' + day + ', ' + hhmm(start) + '–' + hhmm(end), body);
 					}
 
 					var calendar = new FullCalendar.Calendar(calendarEl, {
-					initialView: mobileQuery.matches ? 'listDay' : 'timeGridWeek',
+					// Desktop: only the 4 conference days (Tue-Fri), so each column is wider
+					views: {
+						conference: { type: 'timeGrid', duration: { days: 4 } },
+					},
+					initialView: mobileQuery.matches ? 'listDay' : 'conference',
 					initialDate: '2026-11-03',
 					validRange: { start: '2026-11-03', end: '2026-11-07' },
 					headerToolbar: toolbarFor(mobileQuery.matches),
@@ -132,6 +239,33 @@
 					slotMinTime: '08:00:00',
 					slotMaxTime: '22:30:00',
 					slotDuration: '00:15:00',
+					eventSources: [ sessionSource(mobileQuery.matches) ],
+					eventDidMount: function (info) {
+						if (!isSession(info.event)) return;
+						var s = sessions[info.event.extendedProps.sessionIndex];
+						info.el.setAttribute('title', 'Session chair: ' + chairName(s));
+						if (info.event.display === 'background') {
+							// Vertical band in the week grid
+							var rail = document.createElement('div');
+							rail.className = 'session-rail';
+							rail.innerHTML = "<span class='session-rail-label'><span class='session-rail-kicker'>Chair</span> " +
+								"<span class='session-rail-name'></span></span>";
+							var nameEl = rail.querySelector('.session-rail-name');
+							nameEl.setAttribute('data-full', chairName(s));
+							nameEl.textContent = chairName(s);
+							rail.addEventListener('click', function () { openSessionModal(calendar, s); });
+							info.el.appendChild(rail);
+							scheduleFit();
+						} else {
+							// Header row in the mobile list
+							var titleCell = info.el.querySelector('.fc-list-event-title');
+							if (titleCell) {
+								titleCell.innerHTML = "<span class='session-row-kicker'>Session chair</span> " +
+									"<span class='session-row-name'></span>";
+								titleCell.querySelector('.session-row-name').textContent = chairName(s);
+							}
+						}
+					},
 					events: [
 
 						// ===================== //
@@ -622,22 +756,31 @@
 
 
 					eventClick: function(info) {
-					// Inject content into the modal
-					document.getElementById('eventModalTitle').innerHTML = info.event.title;
-					document.getElementById('eventModalBody').innerHTML = info.event.extendedProps.description;
-
-					// Show modal
-					$('#eventModal').modal('show');
+					if (isSession(info.event)) {
+						openSessionModal(calendar, sessions[info.event.extendedProps.sessionIndex]);
+						return;
+					}
+					var body = info.event.extendedProps.description || '';
+					if (isTalk(info.event)) {
+						var s = sessionOf(info.event.start);
+						if (s) body = "<span class='modal-session-chair'>Session chair: " + chairName(s) + "</span><br>" + body;
+					}
+					openModal(info.event.title, body);
 					}
 
 					});
 					calendar.render();
+					window.addEventListener('resize', scheduleFit);
 
 					// Switch view when crossing the mobile breakpoint (rotation, resize)
 					function applyMode(isMobile) {
 						calendar.setOption('headerToolbar', toolbarFor(isMobile));
 						calendar.setOption('height', isMobile ? 'auto' : null);
-						calendar.changeView(isMobile ? 'listDay' : 'timeGridWeek');
+						if (isMobile) { calendar.changeView('listDay'); } else { calendar.changeView('conference', '2026-11-03'); }
+						// Sessions are a background band on the grid, a header row in the list
+						var src = calendar.getEventSourceById('sessions');
+						if (src) src.remove();
+						calendar.addEventSource(sessionSource(isMobile));
 					}
 					if (mobileQuery.addEventListener) {
 						mobileQuery.addEventListener('change', function (e) { applyMode(e.matches); });

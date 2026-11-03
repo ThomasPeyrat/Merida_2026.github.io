@@ -1224,6 +1224,99 @@ body.offcanvas #fh5co-main, body.offcanvas .fh5co-nav-toggle {
   background: rgba(0, 0, 0, 0.08);
 }
 
+/* ----- Session chairs ----- */
+/* Week grid: free a narrow lane on the left of each day for the chair band
+   (#calendar prefix: FullCalendar's CSS is loaded after this file) */
+#calendar .fc-timegrid-col-events {
+  margin-left: 21px;
+}
+#calendar .fc-bg-event.session-chair {
+  background: transparent;
+  opacity: 1;
+}
+.session-rail {
+  position: absolute;
+  top: 1px;
+  bottom: 1px;
+  left: 2px;
+  width: 17px;
+  background: #f6ead8;
+  border-left: 3px solid #08345b;
+  border-radius: 0 3px 3px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+.session-rail:hover {
+  background: #f1dcbc;
+}
+.session-rail-label {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  max-height: calc(100% - 6px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 10.5px;
+  line-height: 1;
+  font-weight: 500;
+  color: #08345b;
+}
+.session-rail-kicker {
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: darkorange;
+}
+
+/* 15-min talks: hide the time (already on the left axis and in the popup)
+   so the full speaker name fits on the single line */
+#calendar .fc-timegrid-event-short .fc-event-time {
+  display: none;
+}
+#calendar .fc-timegrid-event-short .fc-event-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Mobile list: chair header row before each session */
+.fc .fc-list-event.session-chair td {
+  background: #f6ead8;
+  border-top: 2px solid #08345b;
+  cursor: pointer;
+}
+.fc .fc-list-event.session-chair .fc-list-event-dot {
+  visibility: hidden;
+}
+.fc .fc-list-event.session-chair .fc-list-event-time {
+  color: #08345b;
+  font-weight: 500;
+}
+.session-row-kicker {
+  display: block;
+  font-size: 0.75em;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: darkorange;
+  margin-right: 4px;
+}
+.session-row-name {
+  color: #08345b;
+  font-weight: 500;
+}
+
+/* Modal: chair line above the title/abstract */
+.modal-session-chair {
+  font-size: 0.9em;
+  font-style: italic;
+  color: #08345b;
+}
+
 @media screen and (max-width: 768px) {
   #calendar {
     padding-left: 10px;
