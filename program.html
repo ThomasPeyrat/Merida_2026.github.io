@@ -587,7 +587,7 @@
 						// ===================== //
 						{
 						title: 'Social Activity',
-						start: '2026-11-05T08:00:00',
+						start: '2026-11-05T07:45:00',
 						end: '2026-11-05T14:00:00',
 						backgroundColor: '#99cf79',
 						borderColor: '#99cf79',
@@ -677,8 +677,8 @@
 						title: 'Marius Chevallier',
 						start: '2026-11-06T10:00:00',
 						end: '2026-11-06T10:15:00',
-						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
-									" <strong style='color:#08345b;'>Abstract:<br></strong> tbd ",
+						description: "<strong style='color:#08345b;'>Title:<br></strong> Min-Max Schrödinger Bridge: consistent generation of Open-High-Low-Close quotes <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> Open-High-Low-Close (OHLC) candlesticks are the standard compressed representation of price evolution over a trading period. A generated candlestick only makes sense if it is internally consistent: the high must dominate the open and close, the low must be dominated by them. Standard generative models that operate directly in the four-dimensional candlestick state space typically do not enforce these order constraints by design and can therefore output invalid samples. We construct a generative model that relies on a continuous stochastic process whose joint distribution of extrema is pinned to the data. OHLC quotes are generated from the extrema of sampled paths, guaranteeing consistent samples by construction. The law of the underlying process is the solution to a constrained relative entropy minimization with respect to Wiener measure, thereby motivating the terminology Min-Max Schrödinger Bridge. We provide an explicit representation of the drift of the optimal process as the conditional expectation of a score function, which we can learn efficiently via neural regression. The training requires the simulation of certain Brownian functionals conditionally on observed extrema, for which we develop specific conditional simulation techniques. We validate the recovery of the target law on a toy dataset. Our construction is likely to be applicable beyond the generation of OHLC financial quotes, and a priori in any situation where the distribution of the maximum and minimum of a dynamic variable is of interest. ",
 						classNames: ['stalk'],
 						},
 
