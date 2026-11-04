@@ -140,8 +140,8 @@
 						{ start: '2026-11-04T11:15:00', end: '2026-11-04T12:45:00', chair: 'Dylan Possamaï' },
 						{ start: '2026-11-04T14:15:00', end: '2026-11-04T15:45:00', chair: 'Henry Panti' },
 						// Thursday 5
-						{ start: '2026-11-05T14:15:00', end: '2026-11-05T15:45:00', chair: 'Anthony Réveillac' },
-						{ start: '2026-11-05T16:15:00', end: '2026-11-05T17:30:00', chair: 'Giorgia Callegaro' },
+						{ start: '2026-11-05T14:30:00', end: '2026-11-05T15:45:00', chair: 'Anthony Réveillac' },
+						{ start: '2026-11-05T16:15:00', end: '2026-11-05T17:15:00', chair: 'Giorgia Callegaro' },
 						// Friday 6
 						{ start: '2026-11-06T09:00:00', end: '2026-11-06T10:45:00', chair: 'Thomas Peyrat' },
 						{ start: '2026-11-06T11:15:00', end: '2026-11-06T13:00:00', chair: 'Mike Ludkovski' },
@@ -592,38 +592,30 @@
 						backgroundColor: '#99cf79',
 						borderColor: '#99cf79',
 						textColor: '#ffffff',
-						description: 'Visit to Uxmal : departure at 8h00 am from Gamma Hotel',
+						description: 'Visit to Uxmal: meeting at 7h45 at Gamma Hotel (there is a 1h30 drive to the site). We will be back around 14h00, with talks resuming at 14h30. There is no lunch included, so feel free to bring a snack or prepare something, since there is nothing to eat at the archaeological site and you might not have much time before the afternoon session. We will bring water, but feel free to bring your favorite drink as well since, as you might have noticed, the sun can be quite strong.',
 						},
 						{
 						title: 'Giorgia Callegaro',
-						start: '2026-11-05T14:15:00',
-						end: '2026-11-05T15:00:00',
+						start: '2026-11-05T14:30:00',
+						end: '2026-11-05T15:15:00',
 						description: "<strong style='color:#08345b;'>Title:<br></strong> A class of Markov processes with resetting and applications to cybersecurity <br>"+
 									" <strong style='color:#08345b;'>Abstract:<br></strong> We introduce a class of piecewise deterministic Markov processes with resetting, motivated by self-exciting models of cyber attacks. Under assumptions reminiscent of ruin theory, we prove the existence and uniqueness of an invariant distribution and derive its density explicitly, thereby establishing ergodicity of the process. We then formulate an associated long-run average control problem in which resetting acts as the intervention mechanism. For exponentially distributed jump sizes, the model becomes analytically tractable, allowing an explicit characterization of the invariant distribution and of the optimal intervention policy. With Giorgia Callegaro, Umut Çetin, Bernardo D'Auria",
 						classNames: ['ltalk'],
 						},
 						{
 						title: 'Lionel Sopgoui',
-						start: '2026-11-05T15:00:00',
-						end: '2026-11-05T15:15:00',
+						start: '2026-11-05T15:15:00',
+						end: '2026-11-05T15:30:00',
 						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
 									" <strong style='color:#08345b;'>Abstract:<br></strong> tbd ",
 						classNames: ['stalk'],
 						},
 						{
 						title: 'Haoze Yan',
-						start: '2026-11-05T15:15:00',
-						end: '2026-11-05T15:30:00',
-						description: "<strong style='color:#08345b;'>Title:<br></strong> When Should a Human Take Back Control? Optimal Delegation under Turbulent AI Risk <br>"+
-									" <strong style='color:#08345b;'>Abstract:<br></strong>  Deploying AI systems requires deciding when to delegate tasks and when humans should intervene to monitor and mitigate risk. These decisions become particularly challenging when failures cluster: a hallucination or harmful output can trigger further errors, creating periods of elevated risk. We introduce a continuous-time framework for learning adaptive human oversight under such turbulent AI risk. Our model jointly captures incident clustering, its suppression by supervision effort, and the delegation decision. We formulate a stochastic control problem combining human actions, monitoring effort, and switching between human–AI-assisted operation and full AI delegation, balancing operational rewards against oversight costs, cascading failures, and induced uncertainty. Human participation is an endogenous component of risk management: the policy determines both when oversight is needed and how much effort to allocate. We study a relaxed switching formulation and propose Hawkes-PPO, a policy-gradient method that uses a bank of exponential filters of observed incident times as a finite-dimensional summary of the history. In a synthetic environment, it achieves a higher risk-adjusted objective than either fixed regime and approaches an approximate full-information oracle. Numerical experiments illustrate how cascade risks shape intervention and delegation decisions, highlighting the benefits of adaptive switching and supervision for reducing risks and costs.",
-						classNames: ['stalk'],
-						},
-						{
-						title: 'Mariano Vazquez Gaete',
 						start: '2026-11-05T15:30:00',
 						end: '2026-11-05T15:45:00',
-						description: "<strong style='color:#08345b;'>Title:<br></strong> Cyber risk prevention under risk averse spectral criteria <br>"+
-									" <strong style='color:#08345b;'>Abstract:<br></strong> This work introduces a model for the prevention and mitigation of cyber risks in networked systems using a risk-averse approach based on spectral criteria. An initial graph is subject to external cyber attacks, modeled by a Susceptible-Infected-Susceptible (SIS) Markov process with controlled infection and recovery rates. We consider the problem of minimizing the risk associated with the evolving structure of the network by employing self-protection and self-insurance efforts, as well as purchasing insurance coverage. We introduce spectral criteria—dependent on the eigenvalues of the graph Laplacian at final time $T$—for which we establish monotonicity in the sense of first‐order stochastic dominance and continuity with respect to the Wasserstein distance. This framework enables us to prove the existence of minimizers for two general optimization problems under consideration: the cases of global and local self-protection. We illustrate our theoretical findings by numerical simulations. ",
+						description: "<strong style='color:#08345b;'>Title:<br></strong> When Should a Human Take Back Control? Optimal Delegation under Turbulent AI Risk <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong>  Deploying AI systems requires deciding when to delegate tasks and when humans should intervene to monitor and mitigate risk. These decisions become particularly challenging when failures cluster: a hallucination or harmful output can trigger further errors, creating periods of elevated risk. We introduce a continuous-time framework for learning adaptive human oversight under such turbulent AI risk. Our model jointly captures incident clustering, its suppression by supervision effort, and the delegation decision. We formulate a stochastic control problem combining human actions, monitoring effort, and switching between human–AI-assisted operation and full AI delegation, balancing operational rewards against oversight costs, cascading failures, and induced uncertainty. Human participation is an endogenous component of risk management: the policy determines both when oversight is needed and how much effort to allocate. We study a relaxed switching formulation and propose Hawkes-PPO, a policy-gradient method that uses a bank of exponential filters of observed incident times as a finite-dimensional summary of the history. In a synthetic environment, it achieves a higher risk-adjusted objective than either fixed regime and approaches an approximate full-information oracle. Numerical experiments illustrate how cascade risks shape intervention and delegation decisions, highlighting the benefits of adaptive switching and supervision for reducing risks and costs.",
 						classNames: ['stalk'],
 						},
 						{
@@ -636,25 +628,25 @@
 						description: 'Coffee Break',
 						},
 						{
-						title: 'Thibaut Mastrolia',
+						title: 'Mariano Vazquez Gaete',
 						start: '2026-11-05T16:15:00',
-						end: '2026-11-05T16:45:00',
-						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
-									" <strong style='color:#08345b;'>Abstract:<br></strong> tbd ",
-						classNames: ['mtalk'],
+						end: '2026-11-05T16:30:00',
+						description: "<strong style='color:#08345b;'>Title:<br></strong> Cyber risk prevention under risk averse spectral criteria <br>"+
+									" <strong style='color:#08345b;'>Abstract:<br></strong> This work introduces a model for the prevention and mitigation of cyber risks in networked systems using a risk-averse approach based on spectral criteria. An initial graph is subject to external cyber attacks, modeled by a Susceptible-Infected-Susceptible (SIS) Markov process with controlled infection and recovery rates. We consider the problem of minimizing the risk associated with the evolving structure of the network by employing self-protection and self-insurance efforts, as well as purchasing insurance coverage. We introduce spectral criteria—dependent on the eigenvalues of the graph Laplacian at final time $T$—for which we establish monotonicity in the sense of first‐order stochastic dominance and continuity with respect to the Wasserstein distance. This framework enables us to prove the existence of minimizers for two general optimization problems under consideration: the cases of global and local self-protection. We illustrate our theoretical findings by numerical simulations. ",
+						classNames: ['stalk'],
 						},
 												{
 						title: 'Beatrice Ongarato',
-						start: '2026-11-05T16:45:00',
-						end: '2026-11-05T17:00:00',
+						start: '2026-11-05T16:30:00',
+						end: '2026-11-05T16:45:00',
 						description: "<strong style='color:#08345b;'>Title:<br></strong> Stable measure transformations for affine jump-diffusion <br>"+
 									" <strong style='color:#08345b;'>Abstract:<br></strong> Affine processes are Markov processes whose characteristic functions admit an exponentially affine dependence on the initial state. This structural property underlies their widespread use in applications, as it ensures a balance between model flexibility and analytical tractability. This naturally raises the question of whether the affine property is stable under changes to equivalent probability measures. In this work, we provide a full characterization of the class of locally equivalent probability measures that preserve the affine structure in a general affine jump–diffusion setting. Building on the methodological framework developed for general Markov processes, we exploit the additional affine structure to derive necessary and sufficient conditions on admissible transformations. Our results yield an explicit and verifiable criterion, enhancing the applicability of our work across multiple areas, especially in finance and actuarial science.",
 						classNames: ['stalk'],
 						},
 						{
 						title: 'Wissal Sabbagh',
-						start: '2026-11-05T17:00:00',
-						end: '2026-11-05T17:30:00',
+						start: '2026-11-05T16:45:00',
+						end: '2026-11-05T17:15:00',
 						description: "<strong style='color:#08345b;'>Title:<br></strong> Forward utilities in switching markets: a deep learning approach <br>"+
 									" <strong style='color:#08345b;'>Abstract:<br></strong> In this talk, we introduce two neural-network-based numerical schemes for solving systems of coupled ergodic Backward Stochastic Differential Equations (eBSDEs). They are motivated by the approximation of forward utilities and optimal strategies in a regime-switching stochastic factor model, where homothetic forward utilities are represented by systems of eBSDEs. We first show that the solution of the system of ergodic BSDEs coincides with that of a multidimensional BSDE with random terminal time, given by the return time of the positive recurrent stochastic factor. Based on this representation, we propose a locally additive deep learning scheme (LAeBSDE), obtained by minimizing aggregated local error terms. We then present a new algorithm inspired by the Deep Galerkin Method (DGM). It minimizes the residual of the associated ergodic PDE system under the invariant measure of the factor, using a representation of the ergodic cost. Numerical experiments show the accuracy and scalability of both methods, which cross-validate each other. We also illustrate the impact of regime switches on forward preferences and optimal allocations in a bull/bear market. Joint work with G. Broux-Quemerais, S. Kaakaï and A. Matoussi (arXiv:2606.24271).",
 						classNames: ['mtalk'],
@@ -708,7 +700,7 @@
 						description: 'Coffee Break',
 						},
 						{
-						title: 'Felix Matthys',
+						title: 'Thibaut Mastrolia',
 						start: '2026-11-06T11:15:00',
 						end: '2026-11-06T11:45:00',
 						description: "<strong style='color:#08345b;'>Title:<br></strong> tbd <br>"+
